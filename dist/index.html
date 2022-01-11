@@ -16,100 +16,60 @@
     <title>50 in 100 Front-end Challenge</title>
   </head>
   <body>
-    <!-- Header -->
-    <header id="header-home">
-      <div class="container">
-        <nav id="main-nav">
-          <a href="index.html">
-            <img src="img/logoal.png" alt="My logo" id="logo" />
-          </a>
-          <ul>
-            <li><a href="index.html" class="current">Project</a></li>
-            <li>
-              <a
-                href="https://alejolagos.netlify.app/contact.html"
-                target="_blank"
-                >Contact Me</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <div class="header-content">
-          <h1>Welcome to #50in100</h1>
-          <h3>Fifty HTML, CSS, JS projects in one hundred days</h3>
-          <p>
-            Click on each tile to view details, and click on each name to see
-            the demo, repo or livepage
-          </p>
-        </div>
-        <div class="credits">
-          <p>
-            Photo by
-            <a
-              href="https://unsplash.com/@davidmarcu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-              >David Marcu</a
-            >
-            on
-            <a
-              href="https://unsplash.com/s/photos/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-              >Unsplash</a
-            >
-          </p>
+    <!-- Navigation -->
+    <nav id="main-nav">
+      <div class="logo_burger">
+        <a href="index.html">
+          <img
+            src="img/logoal.png"
+            alt="A personal logo with my initials"
+            id="logo"
+          />
+        </a>
+        <div id="burger" class="burger-menu hidden">
+          <svg
+            class="burger-menu_svg"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
         </div>
       </div>
-    </header>
-    <section class="projects">
-      <div class="flex cards container">
-        <div class="card active" style="--optionBackground: url(img/pj_1.jpg)">
-          <div class="detail">
-            <div class="icon">
-              <i class="fab fa-css3"></i>
-            </div>
-            <div class="info">
-              <div class="main">Project 1</div>
-              <div class="sub">
-                <a
-                  href="https://alejolagos.netlify.app/work.html"
-                  target="_blank"
-                  >CSS&JS: Civil Engineer Portfolio</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card" style="--optionBackground: url(img/pj_2.jpg)">
-          <div class="detail">
-            <div class="icon">
-              <i class="fab fa-js"></i>
-            </div>
-            <div class="info">
-              <div class="main">Project 2</div>
-              <div class="sub">
-                <a
-                  href="https://github.com/alejolagosm/cssart_pillguy"
-                  target="_blank"
-                  >CSS Art: Happy pill Guy</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card" style="--optionBackground: url(img/pj_3.gif)">
-          <div class="detail">
-            <div class="icon">
-              <i class="fab fa-html5"></i>
-            </div>
-            <div class="info">
-              <div class="main">Project 3</div>
-              <div class="sub">
-                <a href="https://github.com/alejolagosm/nflnewz" target="_blank"
-                  >CSS&JS: Newz Site</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+      <ul id="menu">
+        <li><a href="index.html" class="current">Intro</a></li>
+        <li><a href="https://alejolagos.netlify.app/contact.html" target="_blank">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Intro Section -->
+    <section class="index-intro">
+        <h1>Welcome to #50in100</h1>
+        <h3>Fifty HTML, CSS, JS projects in one hundred days</h3>
+        <p>Each button will take you to a different mini-project</p>
       </div>
+      <div class="credits">
+        <p>
+          Photo by
+          <a
+            href="https://unsplash.com/@davidmarcu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >David Marcu</a
+          >
+          on
+          <a
+            href="https://unsplash.com/s/photos/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Unsplash</a
+          >
+        </p>
+      </section>
+    <section class="index-projects p-4">
+      <button class="btn-main">Project 1</button>
     </section>
     <!-- Footer -->
     <footer id="main-footer">
