@@ -99,16 +99,27 @@ img {
   margin: 4rem 0;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .btn-dark, .btn-light, .btn-main {
   display: inline-block;
+  border-radius: 6px;
+  margin: 5px;
   padding: 0.8rem 2rem;
   transition: all 0.5s;
+  text-transform: uppercase;
+  font-weight: bold;
   border: none;
   cursor: pointer;
 }
 
 .btn-main {
-  color: #333;
+  color: #f4f4f4;
   background-color: #781d42;
 }
 .btn-light {
@@ -124,6 +135,19 @@ button[class^=btn-]:hover,
 a[class^=btn-]:hover,
 input[class^=btn-]:hover {
   background-color: #781d42;
+}
+
+button[class^=btn-]:active,
+a[class^=btn-]:active,
+input[class^=btn-]:active {
+  transform: scale(0.9);
+}
+
+button[class^=btn-]:disabled,
+a[class^=btn-]:disabled,
+input[class^=btn-]:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
 }
 
 #main-nav {
@@ -180,6 +204,7 @@ input[class^=btn-]:hover {
   border-radius: 50%;
   text-align: center;
   padding: 0.8rem;
+  color: #fff;
 }
 #main-footer .footer-content .social .fab:hover {
   background: #781d42;
@@ -211,6 +236,92 @@ input[class^=btn-]:hover {
 }
 .index-projects {
   height: calc(100vh - 25rem);
+}
+
+.project-1 {
+  height: calc(100vh - 13.2rem);
+}
+.project-1 .panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #f0d290;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 1s ease-in;
+}
+.project-1 .panel h3 {
+  font-size: 2rem;
+  color: #781d42;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0;
+}
+.project-1 .panel.active {
+  flex: 5;
+}
+.project-1 .panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out 0.5s;
+}
+
+@media (max-width: 500px) {
+  .panel:nth-of-type(4),
+.panel:nth-of-type(5) {
+    display: none;
+  }
+}
+.project-2 {
+  height: calc(100vh - 13.2rem);
+  text-align: center;
+  flex-direction: column;
+}
+.project-2 .progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  width: 25rem;
+}
+.project-2 .progress-container:before {
+  content: "";
+  background-color: #f0d290;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+.project-2 .progress {
+  background-color: #a3423c;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+.project-2 .circle {
+  background-color: #fff;
+  color: #333;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #f0d290;
+  transition: 0.4s ease;
+}
+.project-2 .active {
+  border-color: #781d42;
 }
 
 @media (max-width: 500px) {
