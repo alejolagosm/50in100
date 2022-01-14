@@ -75,9 +75,55 @@ if (document.querySelector(".project-3") != null) {
   // Adding the functionality to the buttons, to add and remove CSS Classes
   open_3.addEventListener("click", () => {
     container_3.classList.add("show-nav");
-    console.log("Hello");
   });
   close_3.addEventListener("click", () =>
     container_3.classList.remove("show-nav")
   );
+}
+
+// Project 4: Hidden Search
+if (document.querySelector(".project-4") != null) {
+  // Selecting DOM elements
+  const search = document.querySelector(".search");
+  const btn = document.querySelector(".btn");
+  const input = document.querySelector(".input");
+  // Adding the functionality to the button, to add and remove CSS Classes
+  btn.addEventListener("click", () => {
+    search.classList.toggle("active");
+    input.focus();
+  });
+}
+
+// Project 5: Hidden Search
+if (document.querySelector(".project-5") != null) {
+  // Selecting DOM elements
+  const loadText = document.querySelector(".loading-text");
+  const bg = document.querySelector(".bg");
+  const btn = document.querySelector("#loader");
+  let load;
+  let int = setInterval(0);
+  // Adding the functionality to the button, to add and remove CSS Classes
+  btn.addEventListener("click", () => {
+    load = 0;
+    btn.style.visibility = `hidden`;
+    int = setInterval(blurring, 30);
+  });
+
+  function scalerange(num, in_min, in_max, out_min, out_max) {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+  }
+
+  function blurring() {
+    load++;
+    if (load === 100) {
+      setTimeout(function () {
+        clearInterval(int);
+        btn.style.visibility = `visible`;
+        bg.style.filter = `blur(70px)`;
+      }, 2000);
+    }
+    if ((load % 10 === 0) & (load < 100)) loadText.innerText = `${load}%`;
+    loadText.style.opacity = scalerange(load, 0, 100, 1, 0);
+    bg.style.filter = `blur(${scalerange(load, 0, 100, 70, 0)}px`;
+  }
 }
