@@ -94,7 +94,7 @@ if (document.querySelector(".project-4") != null) {
   });
 }
 
-// Project 5: Hidden Search
+// Project 5: Blurring efect
 if (document.querySelector(".project-5") != null) {
   // Selecting DOM elements
   const loadText = document.querySelector(".loading-text");
@@ -125,5 +125,49 @@ if (document.querySelector(".project-5") != null) {
     if ((load % 10 === 0) & (load < 100)) loadText.innerText = `${load}%`;
     loadText.style.opacity = scalerange(load, 0, 100, 1, 0);
     bg.style.filter = `blur(${scalerange(load, 0, 100, 70, 0)}px`;
+  }
+}
+
+// Project 6: Scroll Animation
+if (document.querySelector(".project-6") != null) {
+  // Selecting DOM elements
+  const boxes = document.querySelectorAll(".box");
+
+  function checkBoxes() {
+    const trigger = (window.innerHeight / 5) * 4;
+
+    boxes.forEach((box) => {
+      const boxtop = box.getBoundingClientRect().top;
+      if (boxtop < trigger) {
+        box.classList.add("show");
+      } else {
+        box.classList.remove("show");
+      }
+    });
+  }
+
+  checkBoxes();
+
+  // Adding the functionality to the button, to add and remove CSS Classes
+  window.addEventListener("scroll", checkBoxes);
+}
+
+// Project 7: Split landing
+if (document.querySelector(".project-7") != null) {
+  // Selecting DOM elements
+  const left = document.querySelector(".left");
+  const right = document.querySelector(".right");
+  const container = document.querySelector(".project-7");
+  // Adding the functionality to the buttons, to add and remove CSS Classes
+  events(left, "hover-left");
+  events(right, "hover-right");
+
+  function events(btn, hover_pos) {
+    btn.addEventListener("mouseenter", () => {
+      container.classList.add(`${hover_pos}`);
+    });
+    btn.addEventListener("mouseleave", () => {
+      container.classList.remove(`${hover_pos}`);
+    });
   }
 }
