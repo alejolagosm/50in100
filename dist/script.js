@@ -1,23 +1,24 @@
 // Javascript for projects 1 to 5
 
 // Project 1: Slider Cards
-// Selecting Elements
-const panels_1 = document.querySelectorAll(".panel");
-// Adding the event listener functionality to each panel
-panels_1.forEach((panel) => {
-  panel.addEventListener("click", () => {
-    removeActiveClass();
-    panel.classList.add("active");
-  });
-});
-
-// Function to remove the classes
-function removeActiveClass() {
+if (document.querySelector(".project-1") != null) {
+  // Selecting Elements
+  const panels_1 = document.querySelectorAll(".panel");
+  // Adding the event listener functionality to each panel
   panels_1.forEach((panel) => {
-    panel.classList.remove("active");
+    panel.addEventListener("click", () => {
+      removeActiveClass();
+      panel.classList.add("active");
+    });
   });
-}
 
+  // Function to remove the classes
+  function removeActiveClass() {
+    panels_1.forEach((panel) => {
+      panel.classList.remove("active");
+    });
+  }
+}
 // Project 2: Progress Steps
 if (document.querySelector(".project-2") != null) {
   // Selecting Elements
@@ -109,10 +110,12 @@ if (document.querySelector(".project-5") != null) {
     int = setInterval(blurring, 30);
   });
 
+  // This is to map an interval of numbers to a different set of values
   function scalerange(num, in_min, in_max, out_min, out_max) {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
   }
 
+  // This functions blurs the text and unblurs the image
   function blurring() {
     load++;
     if (load === 100) {
@@ -145,9 +148,8 @@ if (document.querySelector(".project-6") != null) {
       }
     });
   }
-
+  //This is called initially to show that should appear right away
   checkBoxes();
-
   // Adding the functionality to the button, to add and remove CSS Classes
   window.addEventListener("scroll", checkBoxes);
 }
@@ -170,4 +172,60 @@ if (document.querySelector(".project-7") != null) {
       container.classList.remove(`${hover_pos}`);
     });
   }
+}
+
+// Project 9: Sounds
+if (document.querySelector(".project-9") != null) {
+  // The array for the sounds
+  const sounds = ["applause", "boo", "gasp", "tada", "victory", "wrong"];
+  // This function stops all the sounds playing at the moment
+  function stopSounds() {
+    sounds.forEach((sound) => {
+      const audio_tm = document.getElementById(sound);
+      audio_tm.pause();
+      audio_tm.currentTime = 0;
+    });
+  }
+  // This loop creates the buttons and adds all the functionality for the sound
+  sounds.forEach((sound) => {
+    const btn = document.createElement("button");
+    btn.classList.add("btn-medium");
+    btn.innerText = sound;
+    btn.addEventListener("click", () => {
+      stopSounds();
+      document.getElementById(sound).play();
+    });
+    document.getElementById("buttons").appendChild(btn);
+  });
+}
+
+if (document.querySelector(".project-10") != null) {
+  const jokeEl = document.getElementById("joke");
+  const jokeBtn = document.getElementById("jokeBtn");
+
+  const config = {
+    headers: {
+      Accept: "application/json",
+    },
+  };
+
+  // fetch.then option
+  // function generateJoke() {
+  //   fetch("https://icanhazdadjoke.com/", config)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       jokeEl.innerText = data.joke;
+  //     });
+  // }
+
+  // async await option
+  async function generateJoke() {
+    const res = await fetch("https://icanhazdadjoke.com/", config);
+    const data = await res.json();
+    jokeEl.innerText = data.joke;
+  }
+
+  jokeBtn.addEventListener("click", () => {
+    generateJoke();
+  });
 }
