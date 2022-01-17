@@ -106,7 +106,7 @@ img {
   overflow: hidden;
 }
 
-.project-12, .project-11 {
+.project-3, .project-14, .project-12, .project-11 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -281,6 +281,7 @@ input[class^=btn-]:disabled {
 .project-12 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
   margin-bottom: 2rem;
 }
 .project-12 .board .cell {
@@ -291,10 +292,122 @@ input[class^=btn-]:disabled {
   font-size: 2rem;
   font-weight: bold;
   color: #f0d290;
+  border-radius: 5px;
+  box-shadow: 2px 3px 3px black;
   cursor: pointer;
 }
 .project-12 .board .cell:hover {
   background-color: #f0d290;
+}
+
+.project-13 {
+  flex-direction: column;
+  background-color: #f0f0f0;
+}
+.project-13 h1 {
+  margin: 0 0 0.5rem;
+}
+.project-13 .faq-container {
+  min-width: 600px;
+  margin: 0 auto;
+}
+.project-13 .faq-container .faq {
+  background-color: transparent;
+  border: 1px solid #9fa4a8;
+  border-radius: 10px;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+  text-align: right;
+}
+.project-13 .faq-container .faq.active {
+  background-color: #a3423c;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.project-13 .faq-container .faq.active::before, .project-13 .faq-container .faq.active::after {
+  content: "\f075";
+  font-family: "Font Awesome 5 Free";
+  font-size: 2.5rem;
+  position: absolute;
+  opacity: 0.3;
+  top: 1rem;
+  left: 5rem;
+  z-index: 0;
+}
+.project-13 .faq-container .faq.active::after {
+  opacity: 0.2;
+  top: 0.5rem;
+  left: 6rem;
+  transform: rotateY(180deg);
+}
+.project-13 .faq-container .faq.active .faq-text {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  display: block;
+}
+.project-13 .faq-container .faq.active .faq-toggle {
+  background-color: #f0d290;
+}
+.project-13 .faq-container .faq.active .faq-toggle .fa-times {
+  display: block;
+  color: white;
+}
+.project-13 .faq-container .faq.active .fa-chevron-down {
+  display: none;
+}
+.project-13 .faq-container .faq .faq-text {
+  display: none;
+}
+.project-13 .faq-container .faq .faq-toggle {
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  height: 2rem;
+  width: 2rem;
+  z-index: 1;
+}
+.project-13 .faq-container .faq .faq-toggle .fa-times {
+  display: none;
+}
+
+.project-14 {
+  flex-direction: column;
+  background-color: #781d42;
+}
+
+.project-3 {
+  flex-direction: column;
+}
+
+.project-3 {
+  flex-direction: column;
+}
+
+.project-3 {
+  flex-direction: column;
+}
+
+.project-3 {
+  flex-direction: column;
+}
+
+.project-3 {
+  flex-direction: column;
+}
+
+.project-3 {
+  flex-direction: column;
 }
 
 @media (max-width: 500px) {
