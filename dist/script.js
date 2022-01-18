@@ -34,6 +34,7 @@ if (document.querySelector(".project-2") != null) {
     if (currentActive > circles_2.length) {
       currentActive = circles_2.length;
     }
+
     update();
   });
   prev_2.addEventListener("click", () => {
@@ -53,6 +54,7 @@ if (document.querySelector(".project-2") != null) {
       }
     });
     const actives = document.querySelectorAll(".active");
+    console.log(actives);
     progress_2.style.width =
       ((actives.length - 1) / (circles_2.length - 1)) * 100 + "%";
 

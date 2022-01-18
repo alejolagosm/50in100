@@ -144,7 +144,61 @@ if (document.querySelector(".project-13") != null) {
 
 // Project 14: Random chooUser
 if (document.querySelector(".project-14") != null) {
+  const inputs = document.getElementById("inputChoices");
+  const choices = document.querySelector(".choices");
+  const btn = document.getElementById("selector");
+
+  let i = false;
+  inputs.addEventListener("input", (value) => {
+    const inputArray = inputs.value.split(",");
+    createEl(inputArray);
+  });
+
+  function createEl(inputs = []) {
+    const inpArr = [];
+    inputs.forEach((choice) => {
+      if (choice.length >= 1) {
+        const div = document.createElement("div");
+        div.innerText = choice;
+        div.classList.add("choice");
+        inpArr.push(div);
+      }
+    });
+    choices.innerHTML = "";
+    inpArr.forEach((div) => choices.appendChild(div));
+  }
+
+  btn.addEventListener("click", randSelection);
+
+  function randSelection() {
+    if (!choices.innerHTML) return;
+    i = 0;
+    var x = setInterval(() => {
+      if (i == 0) {
+        choices.lastElementChild.classList.remove("active");
+      } else {
+        choices.children[i - 1].classList.remove("active");
+      }
+      choices.children[i].classList.add("active");
+      i++;
+      if (i > choices.children.length - 1) i = 0;
+    }, 50);
+
+    setTimeout(() => {
+      clearInterval(x);
+      chooserandom();
+    }, 2000);
+  }
+
+  function chooserandom() {
+    [...choices.children].forEach((div) => div.classList.remove("active"));
+    randomChoice =
+      choices.children[Math.floor(Math.random() * choices.children.length)];
+    randomChoice.classList.add("active");
+  }
 }
+
+// Project 15: Animated Navigation
 if (document.querySelector(".project-15") != null) {
 }
 if (document.querySelector(".project-16") != null) {
