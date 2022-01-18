@@ -106,7 +106,7 @@ img {
   overflow: hidden;
 }
 
-.project-3, .project-14, .project-12, .project-11 {
+.project-3, .project-15, .project-14, .project-12, .project-11 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -420,8 +420,69 @@ input[class^=btn-]:disabled {
   background-color: #781d42;
 }
 
-.project-3 {
+.project-15 {
   flex-direction: column;
+  background-image: linear-gradient(to bottom, #ffffff, #e0e0f7, #bac4ef, #8caae8, #4892e1);
+}
+.project-15 .nav {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s linear;
+}
+.project-15 .nav ul {
+  display: flex;
+  width: 220px;
+  transition: all 0.5s linear;
+}
+.project-15 .nav .item {
+  transform: rotateY(360deg);
+  padding: 0 0.5rem;
+  transition: all 0.5s linear;
+}
+.project-15 .nav .item a:hover {
+  border-bottom: 1px solid #4892e1;
+}
+.project-15 .closer {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+}
+.project-15 .closer::after, .project-15 .closer::before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: all 0.6s linear;
+}
+.project-15 .closer::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.project-15 .active ul {
+  width: 0;
+}
+.project-15 .active .item {
+  transform: rotateY(0deg);
+  opacity: 0;
+}
+.project-15 .active .closer::after {
+  transform: translate(-50%, -50%) rotate(360deg);
+  top: 25%;
+}
+.project-15 .active .closer::before {
+  top: 75%;
+  transform: translate(-50%, -50%) rotate(-360deg);
 }
 
 .project-3 {

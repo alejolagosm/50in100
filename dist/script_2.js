@@ -200,6 +200,11 @@ if (document.querySelector(".project-14") != null) {
 
 // Project 15: Animated Navigation
 if (document.querySelector(".project-15") != null) {
+  const btn = document.querySelector(".closer");
+  const nav = document.querySelector(".nav");
+  btn.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
 }
 if (document.querySelector(".project-16") != null) {
 }
