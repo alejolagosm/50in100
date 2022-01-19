@@ -49,12 +49,12 @@
             <a href="index.html"> <i class="fas fa-home"></i> Back to main</a>
           </li>
           <li>
-            <a href="pj_15.html"
+            <a href="pj_16.html"
               ><i class="fas fa-arrow-left"></i> Previous Project
             </a>
           </li>
           <li>
-            <a href="pj_17.html">
+            <a href="pj_18.html">
               Next Project <i class="fas fa-arrow-right"></i>
             </a>
           </li>
@@ -71,21 +71,35 @@
     </nav>
     <!-- Project Title -->
     <div class="flex">
-      <h1>Project #16: Increment counters</h1>
+      <h1>Project #17: Interactive how many in a...</h1>
     </div>
     <!-- Project content -->
-    <section class="flex project-16 p-4">
-      <div class="content">
-        <h1 class="counter" data-countTo="80000"></h1>
-        <i class="fab fa-facebook fa-2x"><span>Followers</span></i>
+    <section class="flex project-17 p-2">
+      <div class="question">
+        <span>How many</span>
+        <select onchange="changeBeerContainer()" name="Measure" id="measure">
+          <option value="1">Ponies</option>
+          <option value="2">Middies</option>
+          <option value="3">Schooners</option>
+          <option value="4">Pints &#127482;&#127480;</option>
+          <option value="5">Pints &#127468;&#127463;</option>
+          <option value="6">Jugs</option>
+        </select>
+        <span>in a </span>
+        <select onchange="changeBeerContainer()" name="container" id="size">
+          <option value="1">Pony</option>
+          <option value="2">Middy</option>
+          <option value="3">Schooner</option>
+          <option value="4">Pint &#127482;&#127480;</option>
+          <option value="5">Pint &#127468;&#127463;</option>
+          <option value="6">Jug</option>
+        </select>
       </div>
-      <div class="content">
-        <h1 class="counter" data-countTo="10000"></h1>
-        <i class="fab fa-twitter fa-2x"><span>Followers</span></i>
-      </div>
-      <div class="content">
-        <h1 class="counter" data-countTo="50000"></h1>
-        <i class="fab fa-instagram fa-2x"> <span>Followers</span></i>
+      <div class="beer-content">
+        <div class="beer-size">
+          <div class="liquid"></div>
+        </div>
+        <div class="liquid spill"></div>
       </div>
     </section>
     <!-- Footer -->

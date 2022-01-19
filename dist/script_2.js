@@ -234,8 +234,47 @@ if (document.querySelector(".project-15") != null) {
 
 // Project 16: Increment Counters
 if (document.querySelector(".project-16") != null) {
+  const counters = document.querySelectorAll(".counter");
+  counters.forEach((counter) => {
+    const limit = counter.dataset.countto;
+    const increment = limit / 250;
+    let count = 0;
+    counter.innerText = 0;
+
+    let int = setInterval(() => {
+      count += increment;
+      counter.innerText = count;
+      if (count >= limit) {
+        clearInterval(int);
+      }
+    }, 1);
+  });
 }
+
+// Project 17:
 if (document.querySelector(".project-17") != null) {
+  const beerSizes = [140, 285, 425, 470, 570, 1140];
+  const measure = document.getElementById("measure");
+  const size = document.getElementById("size");
+  function changeBeerContainer() {
+    document.querySelector(".beer-content").classList.add("active");
+    const w1 = Math.sqrt(beerSizes[size.value - 1] / 1.25) * 10;
+    const h1 = Math.min(
+      (100 * beerSizes[measure.value - 1]) / beerSizes[size.value - 1],
+      100
+    );
+    const h2 =
+      measure.value > size.value
+        ? Math.sqrt(
+            (beerSizes[measure.value - 1] - beerSizes[size.value - 1]) / 4.5
+          ) * 10
+        : 0;
+
+    console.log(w1, h1, h2);
+    document.querySelector(".project-17").style.setProperty("--w1", `${w1}px`);
+    document.querySelector(".project-17").style.setProperty("--h1", `${h1}%`);
+    document.querySelector(".project-17").style.setProperty("--h2", `${h2}%`);
+  }
 }
 if (document.querySelector(".project-18") != null) {
 }

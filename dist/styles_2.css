@@ -106,7 +106,7 @@ img {
   overflow: hidden;
 }
 
-.project-3, .project-15, .project-14, .project-12, .project-11-a, .project-11 {
+.project-3, .project-17, .project-16, .project-14, .project-12, .project-11-a, .project-11 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -500,12 +500,144 @@ input[class^=btn-]:disabled {
   transform: translate(-50%, -50%) rotate(-360deg);
 }
 
-.project-3 {
-  flex-direction: column;
+.project-15_2 .loader {
+  --b: 10px;
+  --n: 10;
+  --g: 10deg;
+  --c: #142f43;
+  margin: 5px;
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(#0000, var(--c)) content-box;
+  -webkit-mask: repeating-conic-gradient(#0000 0deg, #000 1deg calc(360deg / var(--n) - var(--g) - 1deg), #0000 calc(360deg / var(--n) - var(--g)) calc(360deg / var(--n))), radial-gradient(farthest-side, #0000 calc(98% - var(--b)), #000 calc(100% - var(--b)));
+  mask: repeating-conic-gradient(#0000 0deg, #000 1deg calc(360 / var(--n) - var(--g) - 1deg), #0000 calc(360deg / var(--n) - var(--g)) calc(360deg / var(--n)));
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: load 1s infinite steps(var(--n));
 }
 
-.project-3 {
+.project-15_3 {
   flex-direction: column;
+}
+.project-15_3 .loader_2 {
+  --n: 5;
+  --s: 30px;
+  --g: 5px;
+  --c: #b983ff;
+  width: calc((var(--n) * (var(--s) + var(--g))));
+  height: 25px;
+  padding: calc(var(--g) / 2);
+  border: 1px solid;
+  margin: 10px;
+  background: repeating-linear-gradient(90deg, var(--c) 0 var(--s), #0000 var(--s) calc(var(--s) + var(--g))) left/calc((var(--n) + 1) * (var(--s) + var(--g))) 100% no-repeat content-box;
+  animation: load_2 1.5s steps(calc(var(--n) + 1)) infinite;
+}
+
+@keyframes load {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes load_2 {
+  0% {
+    background-size: 0% 100%;
+  }
+}
+.project-16 {
+  background-image: linear-gradient(to left top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+.project-16 .content {
+  min-width: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.project-16 .content i {
+  display: flex;
+  align-items: center;
+}
+.project-16 .content i span {
+  margin-left: 5px;
+  font-size: 1rem;
+}
+
+@media (max-width: 500px) {
+  .project-16 {
+    flex-direction: column;
+  }
+}
+.project-17 {
+  flex-direction: column;
+  --w1: 85px;
+  --h1: 50%;
+  --h2: 0%;
+}
+.project-17 .question {
+  color: blanchedalmond;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #781d42;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.project-17 .question select {
+  border: 1px solid #f0d290;
+  padding: 3px;
+  background-color: #0000;
+  border-radius: 3px;
+}
+.project-17 .question span {
+  margin-right: 3px;
+}
+.project-17 .beer-content {
+  width: min(calc(var(--w1) * 1.5), 500px);
+  aspect-ratio: 0.5;
+  border: 1px solid;
+  border-radius: 3px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.project-17 .beer-content .beer-size {
+  background-color: rgba(222, 184, 135, 0.5);
+  width: var(--w1);
+  aspect-ratio: 0.8;
+  border-radius: 0 0 20px 20px;
+  clip-path: polygon(100% 0, 90% 50%, 70% 100%, 30% 100%, 10% 50%, 0 0);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+}
+.project-17 .beer-content.active .liquid {
+  height: var(--h1);
+}
+.project-17 .beer-content.active .liquid.spill {
+  height: min(var(--h2), 100%);
+}
+.project-17 .liquid {
+  align-self: flex-end;
+  height: 0%;
+  width: 100%;
+  background-image: linear-gradient(to right, #cf6900, #d67005, #dc770b, #e37e11, #e98516, #ec8b20, #ef912a, #f29732, #f29d40, #f1a34c, #f1a959, #f0af65);
+  transition: all 1s linear;
+}
+.project-17 .liquid.spill {
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+  height: 0%;
+  width: 100%;
+  transition: all 1s linear 1s;
 }
 
 .project-3 {
