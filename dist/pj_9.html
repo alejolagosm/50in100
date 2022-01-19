@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Project 9: Handling Sounds</title>
+    <title>Project 9: Match Animals</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -71,18 +71,49 @@
     </nav>
     <!-- Project Title -->
     <div class="flex">
-      <h1>Project #9: Sounds</h1>
+      <h1>Project #9: Drag & Drop Matching Animals</h1>
     </div>
-    <!-- Project content -->
+    
     <section class="flex project-9 p-4">
-      <audio id="applause" src="mp3/applause.mp3"></audio>
-      <audio id="boo" src="mp3/boo.mp3"></audio>
-      <audio id="gasp" src="mp3/gasp.mp3"></audio>
-      <audio id="tada" src="mp3/tada.mp3"></audio>
-      <audio id="victory" src="mp3/victory.mp3"></audio>
-      <audio id="wrong" src="mp3/wrong.mp3"></audio>
-
-      <div id="buttons"></div>
+      <div class="container" id="init-container">
+        <h1>MATCH RANDOM ANIMALS</h1>
+        <p>Do you think you know all the animals?</p>
+        <p>
+          Press the button to get a random list of animals and their pictures to
+          match.
+          <br />Try to
+          guess them all at the first try!
+        </p>
+        </p>
+        <button class="btn-main" id="get-animals">
+          Get animals!
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <div class="container hidden" id="list-container">
+        <h1>MATCH RANDOM ANIMALS</h1>
+        <p>
+          Drag and drop each photo to match the name of the animal
+          <br />
+          If you hover over the picture you'll get a better look at it
+        </p>
+        <div class="lists">
+          <ul class="picture-li" id="picture-li"></ul>
+          <ul class="drag-li" id="drag-li"></ul>
+        </div>
+        <button class="btn-main" id="check">
+          Check order
+          <i class="far fa-check-circle"></i>
+        </button>
+      </div>
+      <div class="container hidden" id="modal-container">
+        <h1>Congrats! you won 😎😎</h1>
+        <p>Click the button to play again</p>
+        <button class="btn-dark" id="re-start">
+          Re-Start
+          <i class="fas fa-play-circle"></i>
+        </button>
+      </div>
     </section>
     <!-- Footer -->
     <footer id="main-footer">

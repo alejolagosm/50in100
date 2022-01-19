@@ -106,7 +106,7 @@ img {
   overflow: hidden;
 }
 
-.project-3, .project-15, .project-14, .project-12, .project-11 {
+.project-3, .project-15, .project-14, .project-12, .project-11-a, .project-11 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -275,6 +275,21 @@ input[class^=btn-]:disabled {
   font-size: 1rem;
 }
 
+.project-11-a {
+  flex-direction: column;
+}
+.project-11-a #buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .project-9 #buttons {
+    flex-direction: column;
+  }
+}
 .project-12 {
   flex-direction: column;
 }

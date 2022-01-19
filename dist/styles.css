@@ -106,7 +106,7 @@ img {
   overflow: hidden;
 }
 
-.project-10, .project-9, .project-7, .project-5, .project-4 {
+.project-10, .project-7, .project-5, .project-4 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -771,27 +771,100 @@ input[class^=btn-]:disabled {
   }
 }
 .project-9 {
-  flex-direction: column;
-}
-.project-9 #buttons {
+  --it-height: 60px;
   display: flex;
-  flex-wrap: wrap;
+  text-align: center;
   justify-content: center;
+  background-color: #eef2ff;
+}
+.project-9 .hidden {
+  display: none;
+}
+.project-9 .lists {
+  display: flex;
   align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+.project-9 .lists ul {
+  border: 1px solid #333;
+  margin: 0 2px;
+}
+.project-9 .lists ul li {
+  height: var(--it-height);
+  display: flex;
+  flex: 1;
+}
+.project-9 .lists ul li:not(:last-of-type) {
+  border-bottom: 1px solid #333;
+}
+.project-9 .lists ul .number {
+  background-color: #a3423c;
+  color: #f0d290;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  height: calc(var(--it-height) - 1px);
+  width: calc(var(--it-height) - 1px);
+}
+.project-9 .lists .picture-li li img {
+  width: calc(var(--it-height) - 1px);
+  height: calc(var(--it-height) - 1px);
+  cursor: pointer;
+}
+.project-9 .lists .picture-li li img:hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: #f0d290;
+}
+.project-9 .lists .drag-li {
+  background-color: #781d42;
+}
+.project-9 .lists .drag-li .right .name {
+  color: #3ae374;
+}
+.project-9 .lists .drag-li .wrong .name {
+  color: #ff3838;
+}
+.project-9 .lists .drag-li .over .draggable {
+  color: #eaeaea;
+}
+.project-9 .lists .drag-li .draggable {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  flex: 1;
+}
+.project-9 .lists .drag-li .draggable .name {
+  margin: 0 50px 0 0;
+}
+.project-9 #check:active {
+  transform: scale(0.95);
+}
+.project-9 #modal-container {
+  background-color: #781d42;
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
 }
 
-@media (max-width: 500px) {
-  .project-9 #buttons {
-    flex-direction: column;
-  }
-}
 .project-10 {
   flex-direction: column;
 }
 .project-10 .container-10 {
   background-color: #a3423c;
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6 px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3), 5px 6px 6px rgba(0, 0, 0, 0.3);
   text-align: center;
   max-width: 100%;
   width: 800px;

@@ -1,6 +1,31 @@
 // Javascript for projects 11 to 20
 
-// Project 11: Slider Cards
+// Project 11-a: Sounds
+if (document.querySelector(".project-11-a") != null) {
+  // The array for the sounds
+  const sounds = ["applause", "boo", "gasp", "tada", "victory", "wrong"];
+  // This function stops all the sounds playing at the moment
+  function stopSounds() {
+    sounds.forEach((sound) => {
+      const audio_tm = document.getElementById(sound);
+      audio_tm.pause();
+      audio_tm.currentTime = 0;
+    });
+  }
+  // This loop creates the buttons and adds all the functionality for the sound
+  sounds.forEach((sound) => {
+    const btn = document.createElement("button");
+    btn.classList.add("btn-medium");
+    btn.innerText = sound;
+    btn.addEventListener("click", () => {
+      stopSounds();
+      document.getElementById(sound).play();
+    });
+    document.getElementById("buttons").appendChild(btn);
+  });
+}
+
+// Project 11-b: Key Codes
 if (document.querySelector(".project-11") != null) {
   const insert = document.getElementById("insert");
   window.addEventListener("keydown", (e) => {
@@ -206,6 +231,8 @@ if (document.querySelector(".project-15") != null) {
     nav.classList.toggle("active");
   });
 }
+
+// Project 16: Increment Counters
 if (document.querySelector(".project-16") != null) {
 }
 if (document.querySelector(".project-17") != null) {
