@@ -1,3 +1,15 @@
+// Navigation Media Query hidden
+const burger = document.querySelector("#burger");
+const menu = document.querySelector("#menu");
+
+burger.addEventListener("click", () => {
+  if (menu.classList.contains("hidden")) {
+    menu.classList.remove("hidden");
+  } else {
+    menu.classList.add("hidden");
+  }
+});
+
 // Javascript for projects 11 to 20
 
 // Project 11-a: Sounds
@@ -251,11 +263,13 @@ if (document.querySelector(".project-16") != null) {
   });
 }
 
-// Project 17:
+// Project 17: Animated beer measures transformation
+
 if (document.querySelector(".project-17") != null) {
   const beerSizes = [140, 285, 425, 470, 570, 1140];
   const measure = document.getElementById("measure");
   const size = document.getElementById("size");
+  const liquid = document.getElementById("liquid");
   function changeBeerContainer() {
     document.querySelector(".beer-content").classList.add("active");
     const w1 = Math.sqrt(beerSizes[size.value - 1] / 1.25) * 10;
@@ -274,6 +288,9 @@ if (document.querySelector(".project-17") != null) {
     document.querySelector(".project-17").style.setProperty("--w1", `${w1}px`);
     document.querySelector(".project-17").style.setProperty("--h1", `${h1}%`);
     document.querySelector(".project-17").style.setProperty("--h2", `${h2}%`);
+    liquid.innerText = (
+      beerSizes[measure.value - 1] / beerSizes[size.value - 1]
+    ).toFixed(2);
   }
 }
 if (document.querySelector(".project-18") != null) {

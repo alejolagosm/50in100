@@ -104,6 +104,7 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  text-align: center;
 }
 
 .project-3, .project-17, .project-16, .project-14, .project-12, .project-11-a, .project-11 {
@@ -245,9 +246,20 @@ input[class^=btn-]:disabled {
   color: #f0d290;
 }
 .index-projects {
-  height: calc(100vh - 25rem);
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  height: auto;
 }
 
+@media (max-width: 500px) {
+  .index-projects {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+}
 .project-11 {
   flex-direction: column;
 }
@@ -286,8 +298,22 @@ input[class^=btn-]:disabled {
 }
 
 @media (max-width: 500px) {
-  .project-9 #buttons {
+  .project-11-a {
+    padding: 0.5rem;
+    height: auto;
+  }
+  .project-11-a #buttons {
     flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  .project-11 {
+    padding: 0.5rem;
+    height: auto;
+  }
+  .project-11 .key {
+    margin: 2rem 0;
   }
 }
 .project-12 {
@@ -396,6 +422,17 @@ input[class^=btn-]:disabled {
   display: none;
 }
 
+@media (max-width: 500px) {
+  .project-13 {
+    padding: 0.5rem;
+  }
+  .project-13 .faq-container {
+    min-width: auto;
+  }
+  .project-13 .faq-container .faq .faq-toggle {
+    left: 0.5rem;
+  }
+}
 .project-14 {
   flex-direction: column;
   background-image: linear-gradient(to right bottom, #781d42, #812341, #8a2941, #92303f, #9a373e, #a64741, #b05645, #ba6649, #c98156, #d79c66, #e4b779, #f0d290);
@@ -435,6 +472,17 @@ input[class^=btn-]:disabled {
   background-color: #781d42;
 }
 
+@media (max-width: 500px) {
+  .project-14 {
+    height: auto;
+  }
+  .project-14 .inputChoices {
+    min-width: auto;
+  }
+  .project-14 .choices {
+    gap: 0.5rem;
+  }
+}
 .project-15 {
   flex-direction: column;
   background-image: linear-gradient(to bottom, #ffffff, #e0e0f7, #bac4ef, #8caae8, #4892e1);
@@ -662,13 +710,42 @@ input[class^=btn-]:disabled {
     grid-template-columns: 1fr;
   }
 
+  #main-nav {
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+  }
+  #main-nav .logo_burger {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #main-nav ul {
+    flex-direction: column;
+  }
+  #main-nav ul .hidden {
+    display: none;
+  }
+  #main-nav .burger-menu {
+    display: block;
+  }
+  #main-nav li {
+    padding: 1rem;
+    text-align: center;
+  }
+  #main-nav a {
+    padding: 0;
+  }
+
   #main-footer {
-    height: 7rem;
+    height: auto;
   }
   #main-footer .footer-content {
     flex-direction: column;
+    gap: 10px;
     padding: 1rem;
-    height: 5rem;
+    height: auto;
   }
 }
 

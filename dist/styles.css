@@ -104,6 +104,7 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  text-align: center;
 }
 
 .project-10, .project-7, .project-5, .project-4 {
@@ -245,9 +246,20 @@ input[class^=btn-]:disabled {
   color: #f0d290;
 }
 .index-projects {
-  height: calc(100vh - 25rem);
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  height: auto;
 }
 
+@media (max-width: 500px) {
+  .index-projects {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+}
 .project-1 {
   height: calc(100vh - 13.2rem);
 }
@@ -280,10 +292,39 @@ input[class^=btn-]:disabled {
   transition: opacity 0.5s ease-in-out 0.5s;
 }
 
+.project-1_b .grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  --min: 15rem;
+  --aspect-ratio: 5/3;
+  --gap: 0;
+}
+.project-1_b .grid li {
+  flex: 1 1 15rem;
+  aspect-ratio: var(--aspect-ratio);
+}
+@supports not (aspect-ratio: 1/1) {
+  .project-1_b li {
+    height: max(25vh, 15rem);
+  }
+}
+.project-1_b img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in;
+}
+.project-1_b img:hover {
+  opacity: 1;
+}
+
 @media (max-width: 500px) {
-  .panel:nth-of-type(4),
-.panel:nth-of-type(5) {
-    display: none;
+  .panel {
+    flex: 1;
+    width: 100%;
   }
 }
 .project-2 {
@@ -612,8 +653,8 @@ input[class^=btn-]:disabled {
     font-size: 2rem;
   }
   .project-7 .btn-7 {
-    padding: 1.2rem;
-    width: 12rem;
+    padding: 0.5rem;
+    width: 25vw;
   }
 }
 .project-8 .row {
@@ -738,7 +779,23 @@ input[class^=btn-]:disabled {
   font-weight: 200;
 }
 
-@media (max-width: 56.25em) {
+@media (max-width: 500px) {
+  .project-8 .row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .project-8 .row [class^=col-] {
+    float: left;
+  }
+  .project-8 .row [class^=col-]:not(:last-child) {
+    margin-right: 0rem;
+  }
+  .project-8 .row .col-1-of-3 {
+    width: auto;
+    margin: 0;
+  }
+
   .card {
     height: auto;
     border-radius: 5px;
@@ -750,10 +807,6 @@ input[class^=btn-]:disabled {
     transition: all 1s ease;
     position: relative;
     box-shadow: none;
-  }
-  .card__side--back {
-    transform: rotateY(0);
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
   }
   .card:hover .card__side--front {
     transform: rotateY(0);
@@ -858,6 +911,14 @@ input[class^=btn-]:disabled {
   padding: 2rem;
 }
 
+@media (max-width: 500px) {
+  .project-9 {
+    padding: 0;
+  }
+  .project-9 .container {
+    padding: 2px;
+  }
+}
 .project-10 {
   flex-direction: column;
 }
@@ -881,6 +942,12 @@ input[class^=btn-]:disabled {
 }
 
 @media (max-width: 500px) {
+  .project-10 {
+    height: auto;
+    padding: 10px;
+  }
+}
+@media (max-width: 500px) {
   .flex {
     flex-direction: column;
     align-items: center;
@@ -890,13 +957,42 @@ input[class^=btn-]:disabled {
     grid-template-columns: 1fr;
   }
 
+  #main-nav {
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+  }
+  #main-nav .logo_burger {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #main-nav ul {
+    flex-direction: column;
+  }
+  #main-nav ul .hidden {
+    display: none;
+  }
+  #main-nav .burger-menu {
+    display: block;
+  }
+  #main-nav li {
+    padding: 1rem;
+    text-align: center;
+  }
+  #main-nav a {
+    padding: 0;
+  }
+
   #main-footer {
-    height: 7rem;
+    height: auto;
   }
   #main-footer .footer-content {
     flex-direction: column;
+    gap: 10px;
     padding: 1rem;
-    height: 5rem;
+    height: auto;
   }
 }
 
