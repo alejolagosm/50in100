@@ -688,10 +688,103 @@ input[class^=btn-]:disabled {
   transition: all 1s linear 1s;
 }
 
-.project-3 {
-  flex-direction: column;
+.project-18 {
+  position: relative;
+}
+.project-18 .search {
+  top: 0;
+  width: 100vw;
+  padding: 0.5rem 2rem;
+  background-color: #781d42;
+  display: flex;
+  justify-content: center;
+}
+.project-18 .search > * {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+}
+.project-18 .search .input {
+  flex: 0.5;
+  margin-right: 1rem;
+  background-color: #a3423c;
+}
+.project-18 .search .input::placeholder {
+  color: black;
+}
+.project-18 .search .btn {
+  background-color: #bea6a0;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.project-18 .grid {
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  background-image: linear-gradient(to right bottom, #b05645, #995144, #834d42, #6d4740, #56423e);
+}
+.project-18 .grid .card {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  height: auto;
+  position: relative;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+.project-18 .grid .card img {
+  place-self: center;
+  max-height: 150px;
+}
+.project-18 .grid .card .caption {
+  padding: 1rem;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: #bea6a0;
+  border-radius: 0 0 16px 16px;
+  display: flex;
+}
+.project-18 .grid .card .caption .name {
+  flex: 1;
+}
+.project-18 .grid .card .caption .strength {
+  display: grid;
+  place-content: center;
+}
+.project-18 .grid .card .caption .strength span {
+  padding: 2px;
+  border: 1px solid;
+  font-size: 0.8rem;
 }
 
+@media (max-width: 900px) {
+  .project-18 .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .project-18 .search {
+    flex-direction: column;
+    align-items: center;
+  }
+  .project-18 .search .input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .project-18 .search .btn {
+    max-width: 100px;
+  }
+  .project-18 .grid {
+    grid-template-columns: 1fr;
+  }
+}
 .project-3 {
   flex-direction: column;
 }

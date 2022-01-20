@@ -283,8 +283,6 @@ if (document.querySelector(".project-17") != null) {
             (beerSizes[measure.value - 1] - beerSizes[size.value - 1]) / 4.5
           ) * 10
         : 0;
-
-    console.log(w1, h1, h2);
     document.querySelector(".project-17").style.setProperty("--w1", `${w1}px`);
     document.querySelector(".project-17").style.setProperty("--h1", `${h1}%`);
     document.querySelector(".project-17").style.setProperty("--h2", `${h2}%`);
@@ -293,7 +291,69 @@ if (document.querySelector(".project-17") != null) {
     ).toFixed(2);
   }
 }
+
+// Project 18: PokeApp
 if (document.querySelector(".project-18") != null) {
+  const searchBtn = document.querySelector(".btn");
+  const searchInput = document.querySelector(".input");
+  const grid = document.querySelector(".grid");
+  let pokemons = [];
+  async function getPokemon(id) {
+    try {
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function savePokemons(randomIds) {
+    try {
+      await Promise.all(
+        [...randomIds].map(async (id) => {
+          const pokemon = await getPokemon(id);
+          pokemons.push(pokemon);
+        })
+      );
+      displaypokemons(pokemons);
+      return pokemons;
+    } catch (err) {
+      const cardHtml = `<div>${err}</div>`;
+      grid.innerHTML += cardHtml;
+    }
+  }
+
+  searchBtn.addEventListener("click", () => {
+    grid.innerHTML = "";
+    pokemons = [];
+    let randomIds = [];
+    const limit = +searchInput.value;
+    for (i = 1; i <= limit; i++) {
+      randomIds.push(Math.floor(Math.random() * 250 + 1));
+    }
+    randomIds = [...new Set(randomIds)];
+    savePokemons(randomIds);
+  });
+
+  function displaypokemons(pokemons) {
+    pokemons.forEach((pokemon) => {
+      const color = pokemon.base_experience <= 150 ? "#B05645" : "#547B32";
+      const imgsrc =
+        pokemon.sprites.other.dream_world.front_default ||
+        pokemon.sprites.front_default;
+      const cardHtml = `<div class="card" data-description="Pokemon">
+      <img src=${imgsrc} alt="The pokemon picture" />
+      <div class="caption">
+        <div class="name">${pokemon.species.name}</div>
+        <div class="strength">
+          <span style="color:${color}">${pokemon.base_experience}</span>
+        </div>
+      </div>
+    </div>`;
+      grid.innerHTML += cardHtml;
+    });
+  }
 }
 if (document.querySelector(".project-19") != null) {
 }
