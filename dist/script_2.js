@@ -1,4 +1,4 @@
-// Navigation Media Query hidden
+// Navigation Hamburger Menu Functionality
 const burger = document.querySelector("#burger");
 const menu = document.querySelector("#menu");
 
@@ -12,6 +12,7 @@ burger.addEventListener("click", () => {
 
 // Javascript for projects 11 to 20
 
+// ////////////////////////////////////////////////////////////////////////////
 // Project 11-a: Sounds
 if (document.querySelector(".project-11-a") != null) {
   // The array for the sounds
@@ -57,7 +58,8 @@ if (document.querySelector(".project-11") != null) {
   });
 }
 
-// Project 12: Tic Tac Toe
+// ////////////////////////////////////////////////////////////////////////////
+// Project 12: Very simple Tic Tac Toe
 if (document.querySelector(".project-12") != null) {
   const playBtn = document.getElementById("play");
   const board = document.querySelector(".board");
@@ -159,6 +161,7 @@ if (document.querySelector(".project-12") != null) {
   });
 }
 
+// ////////////////////////////////////////////////////////////////////////////
 // Project 13: Accordion
 if (document.querySelector(".project-13") != null) {
   const btntoggle = document.querySelectorAll(".faq-toggle");
@@ -179,6 +182,7 @@ if (document.querySelector(".project-13") != null) {
   });
 }
 
+// /////////////////////////////////////////////////////////////////////////////
 // Project 14: Random chooUser
 if (document.querySelector(".project-14") != null) {
   const inputs = document.getElementById("inputChoices");
@@ -235,6 +239,7 @@ if (document.querySelector(".project-14") != null) {
   }
 }
 
+// ////////////////////////////////////////////////////////////////////////////
 // Project 15: Animated Navigation
 if (document.querySelector(".project-15") != null) {
   const btn = document.querySelector(".closer");
@@ -244,6 +249,7 @@ if (document.querySelector(".project-15") != null) {
   });
 }
 
+// ////////////////////////////////////////////////////////////////////////////
 // Project 16: Increment Counters
 if (document.querySelector(".project-16") != null) {
   const counters = document.querySelectorAll(".counter");
@@ -263,8 +269,8 @@ if (document.querySelector(".project-16") != null) {
   });
 }
 
+// ////////////////////////////////////////////////////////////////////////////
 // Project 17: Animated beer measures transformation
-
 if (document.querySelector(".project-17") != null) {
   const beerSizes = [140, 285, 425, 470, 570, 1140];
   const measure = document.getElementById("measure");
@@ -292,6 +298,7 @@ if (document.querySelector(".project-17") != null) {
   }
 }
 
+// /////////////////////////////////////////////////////////////////////////
 // Project 18: PokeApp
 if (document.querySelector(".project-18") != null) {
   const searchBtn = document.querySelector(".btn");
@@ -355,7 +362,49 @@ if (document.querySelector(".project-18") != null) {
     });
   }
 }
+
+// ////////////////////////////////////////////////////////////////////////////
+// Project 19: Background Slider
 if (document.querySelector(".project-19") != null) {
+  const project = document.querySelector(".project-19");
+  const slides = document.querySelectorAll(".slide");
+  const leftBtn = document.querySelector(".arrow-left");
+  const rightBtn = document.querySelector(".arrow-right");
+
+  let activeSlide = 0;
+
+  setBgtoPj();
+  function setBgtoPj() {
+    project.style.backgroundImage = slides[activeSlide].style.backgroundImage;
+  }
+
+  function setActiveSlide() {
+    slides.forEach((slide) => {
+      slide.classList.remove("active");
+    });
+    slides[activeSlide].classList.add("active");
+  }
+
+  leftBtn.addEventListener("click", () => {
+    activeSlide--;
+    if (activeSlide < 0) {
+      activeSlide = slides.length;
+    }
+    setBgtoPj();
+    setActiveSlide();
+  });
+
+  rightBtn.addEventListener("click", () => {
+    activeSlide++;
+    if (activeSlide > slides.length - 1) {
+      activeSlide = 0;
+    }
+    setBgtoPj();
+    setActiveSlide();
+  });
 }
+
+// ////////////////////////////////////////////////////////////////////////////
+// Project 20: SVG Clock
 if (document.querySelector(".project-20") != null) {
 }

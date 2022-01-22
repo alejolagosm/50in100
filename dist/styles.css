@@ -986,9 +986,10 @@ input[class^=btn-]:disabled {
   }
 
   #main-footer {
-    height: auto;
+    height: 180px;
   }
   #main-footer .footer-content {
+    margin-bottom: 1.5rem;
     flex-direction: column;
     gap: 10px;
     padding: 1rem;
