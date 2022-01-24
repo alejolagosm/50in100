@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-3, .project-19, .project-17, .project-16, .project-14, .project-12, .project-11-a, .project-11 {
+.project-19, .project-17, .project-16, .project-14, .project-12, .project-11-a, .project-11 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -865,10 +865,98 @@ input[class^=btn-]:disabled {
     left: 50%;
   }
 }
-.project-3 {
+.project-20 {
+  padding: 2rem;
   flex-direction: column;
+  background-color: #9d5353;
+}
+.project-20 .clock {
+  padding: 1rem;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, #804c36, #8d5a3f, #996848, #a57752, #b1865d, #b88d63, #be9568, #c59c6e, #c89e6f, #caa070, #cda172, #d0a373);
+  border: 1px solid black;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 0 0;
+}
+.project-20 .clock .minute-marker {
+  fill: transparent;
+  stroke: #333;
+  stroke-width: 4;
+  stroke-dasharray: 0.3 0.7;
+  stroke-dashoffset: 0.1;
+}
+.project-20 .clock .hour-marker {
+  fill: transparent;
+  stroke: #781d42;
+  stroke-width: 5;
+  stroke-dasharray: 0.3 4.7;
+  stroke-dashoffset: 0.1;
+}
+.project-20 .clock .hand {
+  stroke: #ffffff;
+  stroke-linecap: round;
+}
+.project-20 .clock .hand.hour {
+  stroke-width: 8;
+  stroke: #781d42;
+}
+.project-20 .clock .hand.minute {
+  stroke-width: 5;
+  stroke: #a3423c;
+}
+.project-20 .clock .hand.second {
+  stroke-width: 3;
+  stroke: #333;
+}
+.project-20 .clock .numbers-container {
+  width: 100%;
+  padding: 1rem 0.5rem 1.5rem;
+  justify-content: center;
+  gap: 1rem;
+}
+.project-20 .clock .numbers-container > span {
+  background-color: #804c36;
+  padding: 0.5rem 0.5rem;
+  font-weight: bold;
+  position: relative;
+  border-radius: 2px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transform-origin: top;
+  min-width: 30px;
+}
+.project-20 .clock .numbers-container > span.active {
+  animation: rotating 1s ease;
+}
+.project-20 .clock .numbers-container > span:after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.project-20 .clock .numbers-container > span.hour_num:after {
+  content: "hh";
+}
+.project-20 .clock .numbers-container > span.minutes_num:after {
+  content: "min";
+}
+.project-20 .clock .numbers-container > span.seconds_num:after {
+  content: "sec";
+}
+.project-20 .clock .numbers-container > span.day:after {
+  content: "DD";
+}
+.project-20 .clock .numbers-container > span.month:after {
+  content: "MM";
+}
+.project-20 .clock .numbers-container > span.year:after {
+  content: "YY";
 }
 
+@media (max-width: 500px) {
+  .project-20 .numbers-container {
+    flex-direction: row;
+  }
+}
 @media (max-width: 500px) {
   .flex {
     flex-direction: column;

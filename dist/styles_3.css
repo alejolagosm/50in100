@@ -107,6 +107,11 @@ img {
   text-align: center;
 }
 
+.project-30, .project-29, .project-28, .project-27, .project-26, .project-24, .project-23, .project-22, .project-21 {
+  height: calc(100vh - 13.2rem);
+  text-align: center;
+}
+
 .btn-dark, .btn-light, .btn-medium, .btn-main {
   display: inline-block;
   border-radius: 6px;
@@ -255,6 +260,75 @@ input[class^=btn-]:disabled {
     height: auto;
   }
 }
+.project-21 {
+  --hue: 200;
+  --saturation: 50%;
+  --elements-color: hsl(var(--hue), var(--saturation), 75%);
+  --background-color: hsl(var(--hue), var(--saturation), 20%);
+  position: relative;
+  background-color: var(--background-color);
+}
+.project-21 .paddle {
+  --position: 50;
+  position: absolute;
+  background-color: var(--elements-color);
+  top: calc(var(--position) * 1%);
+  transform: translateY(-50%);
+  width: 1vw;
+  height: 10vh;
+}
+.project-21 .paddle.left {
+  left: 1vw;
+}
+.project-21 .paddle.right {
+  right: 1vw;
+}
+.project-21 .ball {
+  --x: 50;
+  --y: 50;
+  position: absolute;
+  background-color: var(--elements-color);
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  transform: translate(-50%, -50%);
+  width: 2vh;
+  height: 2vh;
+  border-radius: 50%;
+}
+.project-21 .score {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 3rem;
+  color: var(--elements-color);
+}
+.project-21 .score > * {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0 2vh;
+  opacity: 0.5;
+  margin: 1vh 0;
+}
+.project-21 .score > :first-child {
+  text-align: right;
+  border-right: 1px solid var(--elements-color);
+}
+.project-21 .score > :last-child {
+  text-align: left;
+}
+
+.project-22 {
+  flex-direction: column;
+}
+
+.project-23 {
+  flex-direction: column;
+}
+
+.project-24 {
+  flex-direction: column;
+}
+
 .project-25 {
   flex-direction: column;
 }
@@ -374,6 +448,26 @@ input[class^=btn-]:disabled {
     grid-template-columns: 1fr;
   }
 }
+.project-26 {
+  flex-direction: column;
+}
+
+.project-27 {
+  flex-direction: column;
+}
+
+.project-28 {
+  flex-direction: column;
+}
+
+.project-29 {
+  flex-direction: column;
+}
+
+.project-30 {
+  flex-direction: column;
+}
+
 @media (max-width: 500px) {
   .flex {
     flex-direction: column;
@@ -413,9 +507,10 @@ input[class^=btn-]:disabled {
   }
 
   #main-footer {
-    height: auto;
+    height: 180px;
   }
   #main-footer .footer-content {
+    margin-bottom: 1.5rem;
     flex-direction: column;
     gap: 10px;
     padding: 1rem;

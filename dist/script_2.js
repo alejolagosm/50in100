@@ -407,4 +407,40 @@ if (document.querySelector(".project-19") != null) {
 // ////////////////////////////////////////////////////////////////////////////
 // Project 20: SVG Clock
 if (document.querySelector(".project-20") != null) {
+  const hoursEl = document.querySelector(".hour");
+  const minutesEl = document.querySelector(".minute");
+  const secondsEl = document.querySelector(".second");
+  const hoursNum = document.querySelector(".hour_num");
+  const minutesNum = document.querySelector(".minutes_num");
+  const secondsNum = document.querySelector(".seconds_num");
+  const dayNum = document.querySelector(".day");
+  const monthNum = document.querySelector(".month");
+  const yearNum = document.querySelector(".year");
+
+  function moveClock() {
+    const date = new Date();
+
+    const day = date.getUTCDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear().toString().slice(-2);
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    hoursEl.setAttribute("transform", `rotate(${(360 / 12) * hour})`);
+    minutesEl.setAttribute("transform", `rotate(${(360 / 60) * minute})`);
+    secondsEl.setAttribute("transform", `rotate(${(360 / 60) * second})`);
+    secondsNum.innerText = second;
+    minutesNum.innerText = minute;
+    hoursNum.innerText = hour;
+    dayNum.innerText = day;
+    monthNum.innerText = month < 10 ? "0" + month : month;
+    yearNum.innerText = year;
+
+    setTimeout(() => {
+      requestAnimationFrame(moveClock);
+    }, 1000);
+  }
+
+  requestAnimationFrame(moveClock);
 }

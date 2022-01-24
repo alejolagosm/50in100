@@ -12,8 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles_3.css" />
-    <title>Project 2:</title>
+    <link rel="stylesheet" href="styles_2.css" />
+    <title>SVG Clock</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -49,12 +49,12 @@
             <a href="index.html"> <i class="fas fa-home"></i> Back to main</a>
           </li>
           <li>
-            <a href="pj_20.html"
+            <a href="pj_19.html"
               ><i class="fas fa-arrow-left"></i> Previous Project
             </a>
           </li>
           <li>
-            <a href="pj_25.html">
+            <a href="pj_21.html">
               Next Project <i class="fas fa-arrow-right"></i>
             </a>
           </li>
@@ -71,10 +71,36 @@
     </nav>
     <!-- Project Title -->
     <div class="flex">
-      <h1>Project #2:</h1>
+      <h1>Project #20: SVG Clock</h1>
     </div>
     <!-- Project content -->
-    <section class="flex project-2 p-4"></section>
+    <section class="flex project-20">
+      <div class="flex clock">
+        <svg width="200" height="200" viewBox="-100 -100 200 200">
+          <circle
+            class="minute-marker"
+            cx="0"
+            cy="0"
+            r="90"
+            pathLength="60"
+          ></circle>
+          <circle class="hour-marker" r="90" pathLength="60"></circle>
+          <line class="hand hour" x1="0" y1="0" x2="0" y2="-50" />
+          <line class="hand minute" x1="0" y1="0" x2="0" y2="-70" />
+          <line class="hand second" x1="0" y1="0" x2="0" y2="-90" />
+        </svg>
+
+        <div class="flex numbers-container">
+          <span class="hour_num"></span> <span class="minutes_num"></span>
+          <span class="seconds_num"></span>
+        </div>
+        <div class="flex numbers-container">
+          <span class="day">23</span>
+          <span class="month">01</span>
+          <span class="year">2022</span>
+        </div>
+      </div>
+    </section>
     <!-- Footer -->
     <footer id="main-footer">
       <div class="footer-content container">
@@ -96,6 +122,6 @@
         </div>
       </div>
     </footer>
-    <script src="script_3.js"></script>
+    <script src="script_2.js"></script>
   </body>
 </html>

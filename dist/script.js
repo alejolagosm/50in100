@@ -115,13 +115,17 @@ if (document.querySelector(".project-5") != null) {
   const loadText = document.querySelector(".loading-text");
   const bg = document.querySelector(".bg");
   const btn = document.querySelector("#loader");
+  let bg_image = "";
   let load;
   let int = setInterval(0);
   // Adding the functionality to the button, to add and remove CSS Classes
   btn.addEventListener("click", () => {
     load = 0;
+    loadText.innerText = "0%";
     btn.style.visibility = `hidden`;
+    getDogPic();
     int = setInterval(blurring, 30);
+    bg.style.background = `${bg_image}`;
   });
 
   // This is to map an interval of numbers to a different set of values
@@ -129,17 +133,23 @@ if (document.querySelector(".project-5") != null) {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
   }
 
+  async function getDogPic() {
+    const data = await fetch("https://dog.ceo/api/breeds/image/random");
+    const res = await data.json();
+    bg_image = `url("${res.message}") no-repeat center center`;
+  }
   // This functions blurs the text and unblurs the image
   function blurring() {
     load++;
     if (load === 100) {
       setTimeout(function () {
         clearInterval(int);
+        btn.innerText = "Click again for more cuteness";
         btn.style.visibility = `visible`;
         bg.style.filter = `blur(70px)`;
       }, 2000);
     }
-    if ((load % 10 === 0) & (load < 100)) loadText.innerText = `${load}%`;
+    if ((load % 10 === 0) & (load <= 100)) loadText.innerText = `${load}%`;
     loadText.style.opacity = scalerange(load, 0, 100, 1, 0);
     bg.style.filter = `blur(${scalerange(load, 0, 100, 70, 0)}px`;
   }
