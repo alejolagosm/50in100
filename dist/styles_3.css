@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-30, .project-29, .project-28, .project-27, .project-26, .project-24, .project-23, .project-21 {
+.project-30, .project-29, .project-28, .project-27, .project-26, .project-24, .project-21 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -643,12 +643,233 @@ input[class^=btn-]:disabled {
 }
 .project-23 {
   flex-direction: column;
+  background-color: lightgray;
+}
+.project-23 canvas {
+  border: 1px solid #000;
+  background-color: #f0d290;
+  width: 600px;
+  height: 600px;
+}
+.project-23 .controler {
+  background-color: #781d42;
+  border: 1px solid;
+  padding: 1rem;
+  width: 602px;
+  display: flex;
+}
+.project-23 .controler > * {
+  height: auto;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  height: 50px;
+  width: 50px;
+  border: 1px solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f0d290;
+}
+.project-23 .controler > *:not(:last-child) {
+  margin-right: 1rem;
+}
+.project-23 .controler > :last-child {
+  margin-left: auto;
 }
 
+@media (max-width: 500px) {
+  .project-23 {
+    position: relative;
+  }
+  .project-23 canvas {
+    height: 50vh;
+    width: 90vw;
+  }
+  .project-23 .controler {
+    width: calc(90vw + 2px);
+  }
+  .project-23:after {
+    content: "Sorry, this might not work on Mobile devices";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 2rem;
+  }
+}
 .project-24 {
-  flex-direction: column;
+  background-color: #a3423c;
+  gap: 4rem;
+}
+.project-24 .triangles {
+  position: relative;
+  background: linear-gradient(to right, #f12711, #f5af19);
+  height: 150px;
+  border-radius: 50%;
+  width: 150px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.project-24 .triangles:before, .project-24 .triangles:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 0;
+  width: 0;
+  border: 50px solid transparent;
+  border-bottom-color: #f12711;
+  animation: rotateA 2s linear infinite 0.5s;
+}
+.project-24 .triangles:before {
+  border-bottom-color: #f5af19;
+  transform: rotate(90deg);
+  animation: rotateB 2s linear infinite;
+}
+.project-24 .circles {
+  position: relative;
+  background: linear-gradient(to right, #fffbd5, #b20a2c);
+  height: 50px;
+  width: 204px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.project-24 .circles:before, .project-24 .circles:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #fffbd5;
+  animation: moveA 2s linear infinite;
+}
+.project-24 .circles:before {
+  background: #b20a2c;
+  transform: translate(-100%, -50%);
+  animation: moveB 2s linear infinite;
+}
+.project-24 .hourglass {
+  position: relative;
+  background: linear-gradient(to right, #ffd89b, #19547b);
+  height: 150px;
+  border-radius: 50%;
+  width: 150px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.project-24 .hourglass:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 0;
+  width: 0;
+  border: 50px solid transparent;
+  border-bottom-color: #19547b;
+  border-top-color: #19547b;
+  animation: rotateA 3s linear infinite;
+}
+.project-24 .hourglass:after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #ffd89b, #19547b);
+  animation: moveDown 3s linear infinite;
 }
 
+@keyframes rotateA {
+  0%, 25% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50%, 75% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotateB {
+  0%, 25% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50%, 75% {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(450deg);
+  }
+}
+@keyframes moveA {
+  0% {
+    transform: translate(0%, -50%);
+  }
+  25% {
+    transform: translate(50%, -50%);
+  }
+  50% {
+    transform: translate(100%, -50%);
+  }
+  75% {
+    transform: translate(50%, -50%);
+  }
+  100% {
+    transform: translate(0%, -50%);
+  }
+}
+@keyframes moveB {
+  0% {
+    transform: translate(-100%, -50%);
+  }
+  25% {
+    transform: translate(-150%, -50%);
+  }
+  50% {
+    transform: translate(-200%, -50%);
+  }
+  75% {
+    transform: translate(-150%, -50%);
+  }
+  100% {
+    transform: translate(-100%, -50%);
+  }
+}
+@keyframes moveDown {
+  0% {
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50% {
+    top: 80%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  75% {
+    top: 80%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  100% {
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+@media (max-width: 500px) {
+  .project-24 {
+    flex-direction: column;
+  }
+}
 .project-25 {
   flex-direction: column;
 }
