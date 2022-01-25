@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles_3.css" />
-    <title>Project 21: Pong Game</title>
+    <title>Project 26: Animated Card Loader</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -49,12 +49,12 @@
             <a href="index.html"> <i class="fas fa-home"></i> Back to main</a>
           </li>
           <li>
-            <a href="pj_20.html"
+            <a href="pj_25.html"
               ><i class="fas fa-arrow-left"></i> Previous Project
             </a>
           </li>
           <li>
-            <a href="pj_22.html">
+            <a href="pj_27.html">
               Next Project <i class="fas fa-arrow-right"></i>
             </a>
           </li>
@@ -71,17 +71,54 @@
     </nav>
     <!-- Project Title -->
     <div class="flex">
-      <h1>Project #21: Pong Game (Only for Desktop)</h1>
+      <h1>Project #26: Rick&Morty</h1>
     </div>
     <!-- Project content -->
-    <section class="project-21" id="game-container">
-      <section class="score">
-        <div id="player-score">0</div>
-        <div id="computer-score">0</div>
+    <section class="flex project-26">
+      <nav class="form">
+        <label for="Characters">Input a number</label>
+        <input
+        name="Characters"
+        type="text"
+        class="input"
+        id="inputSearch"
+        placeholder="9"
+      />
+        <button class="btn" id="search">Get characters</button>
+      </nav>
+      <section class="grid">
+        <!-- <div class="card">
+          <div class="picture animated-bg" id="char_img">&nbsp;</div>
+          <div class="caption">
+            <h3 class="title animated-bg animated-bg-text" id="char_name">
+              &nbsp;
+            </h3>
+            <p class="description" id="char_short">
+              &nbsp;
+              <span class="animated-bg animated-bg-text">&nbsp;</span>
+              <span class="animated-bg animated-bg-text">&nbsp;</span>
+            </p>
+            <div class="profile">
+              <div
+                class="char_status animated-bg animated-bg-text"
+                id="char_gender"
+              ></div>
+              <h4
+                class="char_species animated-bg animated-bg-text"
+                id="char_species"
+              >
+                &nbsp;
+              </h4>
+              <p
+                class="char_location animated-bg animated-bg-text"
+                id="char_location"
+              >
+                &nbsp;
+              </p>
+            </div>
+          </div> -->
+        </div>
       </section>
-      <section class="ball" id="ball"></section>
-      <section class="paddle left" id="player-paddle"></section>
-      <section class="paddle right" id="comp-paddle"></section>
     </section>
     <!-- Footer -->
     <footer id="main-footer">
@@ -104,6 +141,6 @@
         </div>
       </div>
     </footer>
-    <script src="scripts/pong.js"></script>
+    <script src="scripts/rmapi.js"></script>
   </body>
 </html>

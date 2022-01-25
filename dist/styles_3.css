@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-30, .project-29, .project-28, .project-27, .project-26, .project-24, .project-21 {
+.project-30, .project-29, .project-28, .project-27, .project-24, .project-21 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -991,8 +991,156 @@ input[class^=btn-]:disabled {
 }
 .project-26 {
   flex-direction: column;
+  position: relative;
+}
+.project-26 .form {
+  top: 0;
+  width: 100vw;
+  padding: 0.5rem 2rem;
+  background-color: #5ffbf1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-26 .form > * {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+.project-26 .form .input {
+  margin-right: 1rem;
+  background-color: #009ffe;
+}
+.project-26 .form .input::placeholder {
+  color: black;
+}
+.project-26 .form .btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #00f260;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 0.5rem 0rem;
+}
+.project-26 .grid {
+  --s: 30%;
+  --f: 40%;
+  width: 100vw;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background-image: linear-gradient(to left bottom, #00f260, #00e7b5, #00d6f3, #00beff, #00a0ff, #009ffe, #009dfc, #009cfb, #00b7ff, #00d0ff, #00e7fb, #5ffbf1);
+}
+.project-26 .grid .card {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+.project-26 .grid .card .picture {
+  height: 250px;
+  background: linear-gradient(to right, #0000, #0000 var(--s), #009cfb var(--s), #009cfb var(--f), #0000 var(--f), #0000);
+}
+.project-26 .grid .card .picture img {
+  height: 250px;
+  object-fit: cover;
+}
+.project-26 .grid .card .caption {
+  padding: 1rem 1rem;
+  color: #000;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.project-26 .grid .card .caption .title,
+.project-26 .grid .card .caption .description {
+  margin-bottom: 0.5rem;
+}
+.project-26 .grid .card .caption .profile {
+  display: grid;
+  grid-template-areas: "img name name" "img date date";
+  column-gap: 15px;
+}
+.project-26 .grid .card .caption .profile .char_status {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  grid-area: img;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #5ffbf1;
+  color: #24a19c;
+}
+.project-26 .grid .card .caption .profile .char_status.female {
+  color: #f94892;
+}
+.project-26 .grid .card .caption .profile .char_status.male {
+  color: #325288;
+}
+.project-26 .grid .card .caption .profile .char_species {
+  grid-area: name;
+  margin-bottom: 0.25rem;
+}
+.project-26 .grid .card .caption .profile .char_location {
+  grid-area: date;
+}
+.project-26 .grid .card .animated-bg {
+  background-image: linear-gradient(to right, #0000 0%, #009cfb 10%, #009cfb 20%, #0000 100%);
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
+}
+.project-26 .grid .card .animated-bg-text {
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0;
+  height: 10px;
+  width: 100%;
 }
 
+@keyframes bgPos {
+  0% {
+    background-position: 50% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+@media (min-width: 1500px) {
+  .project-26 .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .project-26 .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .project-26 .form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .project-26 .form .input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .project-26 .form .btn {
+    max-width: 100px;
+  }
+  .project-26 .grid {
+    grid-template-columns: 1fr;
+  }
+}
 .project-27 {
   flex-direction: column;
 }

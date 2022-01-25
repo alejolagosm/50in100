@@ -130,6 +130,4 @@ if (document.querySelector(".project-23") != null) {
 }
 
 // ////////////////////////////////////////////////////////////////////////////
-// Project 24: Infinite animations
-if (document.querySelector(".project-24") != null) {
-}
+// Project 26: Placeholder Content Animation
