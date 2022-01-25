@@ -130,4 +130,45 @@ if (document.querySelector(".project-23") != null) {
 }
 
 // ////////////////////////////////////////////////////////////////////////////
-// Project 26: Placeholder Content Animation
+// Project 27: Double Vertical Slider
+if (document.querySelector(".project-27") != null) {
+  const btnUp = document.getElementById("btnUp");
+  const btnDown = document.getElementById("btnDown");
+  const images = document.querySelectorAll(".image");
+  const images_desc = document.querySelectorAll(".img_desc");
+  currentImg = 0;
+  btnUp.addEventListener("click", (e) => {
+    const next = currentImg == images.length - 1 ? 0 : currentImg + 1;
+    console.log(currentImg, next);
+    images_desc[currentImg].style.top = "-200%";
+    images[currentImg].style.top = "200%";
+    images_desc[next].style.top = "50%";
+    images[next].style.top = "50%";
+    currentImg = currentImg >= images.length - 1 ? 0 : currentImg + 1;
+    console.log();
+  });
+  btnDown.addEventListener("click", (e) => {
+    const prev = currentImg == images.length - 1 ? 0 : currentImg + 1;
+    console.log(currentImg, prev);
+    images_desc[currentImg].style.top = "200%";
+    images[currentImg].style.top = "-200%";
+    images_desc[prev].style.top = "50%";
+    images[prev].style.top = "50%";
+    currentImg = currentImg >= images.length - 1 ? 0 : currentImg + 1;
+  });
+}
+
+// ////////////////////////////////////////////////////////////////////////////
+// Project 28:
+if (document.querySelector(".project-28") != null) {
+}
+
+// ////////////////////////////////////////////////////////////////////////////
+// Project 29:
+if (document.querySelector(".project-29") != null) {
+}
+
+// ////////////////////////////////////////////////////////////////////////////
+// Project 30:
+if (document.querySelector(".project-30") != null) {
+}
