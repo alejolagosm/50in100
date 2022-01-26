@@ -161,6 +161,44 @@ if (document.querySelector(".project-27") != null) {
 // ////////////////////////////////////////////////////////////////////////////
 // Project 28:
 if (document.querySelector(".project-28") != null) {
+  const notifBtn = document.getElementById("btnNotif");
+  const notifications = document.getElementById("notifications");
+  const pikachu = document.getElementById("pikachu");
+
+  notifBtn.addEventListener("click", () => {
+    createNotif();
+  });
+
+  messages = [
+    "Hello!",
+    "嗨!",
+    "Salut!",
+    "Hola!",
+    "Privet!",
+    "Ciao!",
+    "こんにちは!",
+  ];
+
+  function createNotif() {
+    const notif = document.createElement("div");
+    notif.classList.add("not_popup-child");
+    notif.innerText = getRandomElement(messages);
+    notif.style.top = `${Math.floor(Math.random() * 70) + 20}%`;
+    notif.style.right = `${Math.floor(Math.random() * 20) + 15}%`;
+    pikachu.style.bottom = `${Math.floor(Math.random() * 70) + 20}%`;
+    pikachu.style.left = `${Math.floor(Math.random() * 30) + 15}%`;
+    notifications.appendChild(notif);
+    pikachu.classList.remove("hidden");
+
+    setTimeout(() => {
+      notif.remove();
+      pikachu.classList.add("hidden");
+    }, 500);
+  }
+
+  function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
 }
 
 // ////////////////////////////////////////////////////////////////////////////
@@ -275,4 +313,15 @@ if (document.querySelector(".project-29") != null) {
 // ////////////////////////////////////////////////////////////////////////////
 // Project 30:
 if (document.querySelector(".project-30") != null) {
+  // get disney Characters
+  // async function getMonster() {
+  //   try {
+  //     const res = await fetch("https://api.disneyapi.dev/characters?page=2");
+  //     const data = await res.json();
+  //     console.log(data);
+  //     return data;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 }

@@ -309,6 +309,7 @@ if (document.querySelector(".project-18") != null) {
     try {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
       const data = await res.json();
+      console.log(data);
       return data;
     } catch (err) {
       console.log(err);

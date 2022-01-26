@@ -1237,6 +1237,33 @@ input[class^=btn-]:disabled {
 }
 .project-28 {
   flex-direction: column;
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(37, 145, 251, 0.98) 0.1%, #000780 99.8%);
+  position: relative;
+}
+.project-28 .btn-fire {
+  background-image: linear-gradient(135deg, #fdd819 10%, #e80505 100%);
+  border: none;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.project-28 .greeting {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+}
+.project-28 .greeting.hidden {
+  visibility: hidden;
+}
+.project-28 .not_popup-child {
+  position: absolute;
+  background-image: linear-gradient(135deg, #fdd819 10%, #e80505 100%);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .project-29 {
