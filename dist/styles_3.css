@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-30, .project-29, .project-28, .project-27, .project-24, .project-21 {
+.project-30, .project-28, .project-27, .project-24, .project-21 {
   height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -1240,9 +1240,108 @@ input[class^=btn-]:disabled {
 }
 
 .project-29 {
+  min-height: calc(100vh - 13.2rem);
+  text-align: center;
   flex-direction: column;
+  position: relative;
+}
+.project-29 > .hidden {
+  display: none;
+}
+.project-29 .btn-main {
+  margin-top: 1.5rem;
+}
+.project-29 .scores {
+  margin: 0.5rem;
+  display: flex;
+  width: 500px;
+}
+.project-29 .scores > * {
+  padding: 0.25rem;
+  width: 50%;
+  border: 1px solid;
+}
+.project-29 .scores .player {
+  background-color: #a3423c;
+  margin-right: 10px;
+}
+.project-29 .scores .computer {
+  background-color: #f0d290;
+}
+.project-29 .move {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.project-29 .move i {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10%;
+}
+.project-29 .move.player > * {
+  background-color: #781d42;
+  border-radius: 10%;
+  border: none;
+}
+.project-29 .move.player button {
+  cursor: pointer;
+}
+.project-29 .move.computer > * {
+  background-color: #f0d290;
+  border-radius: 10%;
+  border: none;
+}
+.project-29 .move.chosen {
+  background-color: black;
+}
+.project-29 .move.chosen i {
+  color: #781d42;
+}
+.project-29 .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f0d290;
+  padding: 2rem;
+  z-index: 2;
+}
+.project-29 .popup.hidden {
+  visibility: hidden;
+}
+.project-29 .overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.project-29 .overlay.hidden {
+  display: none;
 }
 
+@media (max-width: 500px) {
+  .project-29 .scores {
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .project-29 .scores .player {
+    margin: 0;
+  }
+}
 .project-30 {
   flex-direction: column;
 }
