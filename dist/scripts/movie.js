@@ -1,3 +1,15 @@
+// Navigation Hamburger Menu Functionality
+const burger = document.querySelector("#burger");
+const menu = document.querySelector("#menu");
+
+burger.addEventListener("click", () => {
+  if (menu.classList.contains("hidden")) {
+    menu.classList.remove("hidden");
+  } else {
+    menu.classList.add("hidden");
+  }
+});
+
 const API_KEY = "a58a6857952f8b895d1fe37677522eca";
 const IMG_URL = "https://image.tmdb.org/t/p/w1280";
 // const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query="`;

@@ -1,3 +1,15 @@
+// Navigation Hamburger Menu Functionality
+const burger = document.querySelector("#burger");
+const menu = document.querySelector("#menu");
+
+burger.addEventListener("click", () => {
+  if (menu.classList.contains("hidden")) {
+    menu.classList.remove("hidden");
+  } else {
+    menu.classList.add("hidden");
+  }
+});
+
 // Constants to define the game characteristics
 const INITIAL_VELOCITY = 0.025;
 const VELOCITY_INCREASE = 0.000001;
