@@ -169,6 +169,88 @@ if (document.querySelector(".project-34") != null) {
 }
 
 // ///////////////////////////////////////////////////////////////////////
-// Project 35:
+// Project 35: NotePad with local storage
 if (document.querySelector(".project-35") != null) {
+  // Button to add notes
+  const addBtn = document.getElementById("addBtn");
+  // Button to delete notes
+  const clearBtn = document.getElementById("clearBtn");
+  // Grid where the notes will go
+  const grid = document.querySelector(".grid");
+  // Getting the notes stored in local storage
+  const notes = JSON.parse(localStorage.getItem("notes"));
+  // If there are notes in local storage, add them to the DOM
+  if (notes) {
+    notes.forEach((note) => addNewNote(note));
+  }
+
+  // Event to add a note
+  addBtn.addEventListener("click", () => addNewNote());
+  // Function to add notes
+  function addNewNote(text = "") {
+    // Creating the DOM element with the markdown
+    const note = document.createElement("div");
+    note.classList.add("card");
+    note.innerHTML = `
+    <div class="header">
+            <button class="editBtn">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="deleteBtn">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <div class="main ${text ? "" : "hidden"}"></div>
+          <textarea class="content ${
+            !text ? "" : "hidden"
+          }" name="content" id="content" rows="15"></textarea>
+    `;
+    // Getting all the buttons and text markdown
+    const editBtn = note.querySelector(".editBtn");
+    const deleteBtn = note.querySelector(".deleteBtn");
+    const main = note.querySelector(".main");
+    const textArea = note.querySelector(".content");
+    // Assign the text to the text areas and the div
+    textArea.value = text;
+    main.innerHTML = marked.parse(text);
+    // Delete btn functionality
+    deleteBtn.addEventListener("click", () => {
+      note.remove();
+      updateLS();
+    });
+    // Edit button functionality: Alternate between div and text area for the content of the note
+    editBtn.addEventListener("click", () => {
+      main.classList.toggle("hidden");
+      textArea.classList.toggle("hidden");
+    });
+    // Updating the text content of the div according to the changes in the text area
+    textArea.addEventListener("input", (e) => {
+      const { value } = e.target;
+      main.innerHTML = marked.parse(value);
+      updateLS();
+    });
+    // Adding the note to the DOM
+    grid.appendChild(note);
+  }
+
+  // Updating local storage
+  function updateLS() {
+    const notesText = document.querySelectorAll("textarea");
+    const notes = [];
+    notesText.forEach((note) => {
+      notes.push(note.value);
+    });
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }
+
+  // Delete all the notes btn
+  clearBtn.addEventListener("click", () => {
+    grid.innerHTML = ``;
+    localStorage.clear();
+  });
+}
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 36:
+if (document.querySelector(".project-36") != null) {
 }
