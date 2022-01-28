@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1372c28c63.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles_4.css" />
+    <title>Project 33: Random Password Generator</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="main-nav">
+      <div class="logo_burger">
+        <a href="index.html">
+          <img
+            src="img/logoal.png"
+            alt="A personal logo with my initials"
+            id="logo"
+          />
+        </a>
+        <div id="burger" class="burger-menu hidden">
+          <svg
+            class="burger-menu_svg"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <ul id="menu">
+        <ul id="menu">
+          <li>
+            <a href="index.html"> <i class="fas fa-home"></i> Back to main</a>
+          </li>
+          <li>
+            <a href="pj_32.html"
+              ><i class="fas fa-arrow-left"></i> Previous Project
+            </a>
+          </li>
+          <li>
+            <a href="pj_34.html">
+              Next Project <i class="fas fa-arrow-right"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://alejolagos.netlify.app/contact.html"
+              target="_blank"
+            >
+              Contact Me
+            </a>
+          </li>
+        </ul>
+      </ul>
+    </nav>
+    <!-- Project Title -->
+    <div class="flex">
+      <h1>Project #33: Generate Random Password</h1>
+    </div>
+    <!-- Project content -->
+    <section class="flex project-33 p-2">
+      <div class="container">
+        <h1>Password Generator</h1>
+        <div class="password">
+          <span class="password_text"></span>
+          <button class="copyclip">
+            <i class="far fa-copy"></i>
+          </button>
+        </div>
+        <form>
+          <label for="input_2"> Include special word </label>
+          <input
+            class="input_2"
+            name="input_2"
+            type="text"
+            id="uppercase"
+            placeholder="grandma"
+          />
+          <label for="input_1"> Password Length </label>
+          <input
+            class="input_1"
+            name="input_1"
+            type="number"
+            max="15"
+            min="1"
+            step="2"
+            placeholder="12"
+            value="12"
+          />
+
+          <label for="input_3"> Include uppercase letters </label>
+          <input
+            class="input_3"
+            name="input_3"
+            type="checkbox"
+            id="uppercase"
+            checked
+          />
+          <label for="input_4"> Include numbers </label>
+          <input
+            class="input_4"
+            name="input_4"
+            type="checkbox"
+            id="uppercase"
+            checked
+          />
+          <label for="input_5"> Include symbols </label>
+          <input
+            class="input_5"
+            name="input_5"
+            type="checkbox"
+            id="uppercase"
+            checked
+          />
+          <input class="input_submit" type="submit" value="Generate Password" />
+        </form>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer id="main-footer">
+      <div class="footer-content container">
+        <p>A project By: Alejo Lagos</p>
+        <p>Copyright &copy; 2022. All rights reserved</p>
+        <div class="social">
+          <a href="https://co.linkedin.com/in/alejandrolagos1" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/alejolagosm" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://codepen.io/alejolagosm" target="_blank"
+            ><i class="fab fa-codepen"></i
+          ></a>
+          <a href="https://twitter.com/alejolagos12" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <script src="script_4.js"></script>
+  </body>
+</html>
