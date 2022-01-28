@@ -11,13 +11,12 @@ burger.addEventListener("click", () => {
 });
 
 // Project specific JS
-const API_URL =
-  "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Tornado%20Dragon";
+const API_URL = "http://hp-api.herokuapp.com/api/characters";
 
 async function getData() {
   try {
     const data = await axios(API_URL);
-    console.log(data);
+    console.log(data.data);
   } catch (err) {
     console.log(err);
   }
