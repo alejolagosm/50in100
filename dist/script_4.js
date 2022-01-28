@@ -102,7 +102,7 @@ if (document.querySelector(".project-33") != null) {
   // Copy to clipboard functionality
   passwordCopy.addEventListener("click", (e) => {
     navigator.clipboard.writeText(passwordResult.innerText);
-    alert("Copied the password:" + passwordResult.innerText);
+    // alert("Copied the password:" + passwordResult.innerText);
   });
 
   // Generate the password looping through each required special character and adding the special word as necessary
@@ -142,6 +142,33 @@ if (document.querySelector(".project-33") != null) {
 }
 
 // ///////////////////////////////////////////////////////////////////////
-// Project 34:
-if (document.querySelector(".project-3") != null) {
+// Project 34: Checkboxes
+if (document.querySelector(".project-34") != null) {
+  const toggles = document.querySelectorAll(".toggle");
+  const great = document.getElementById("great");
+  const fast = document.getElementById("fast");
+  const cheap = document.getElementById("cheap");
+
+  toggles.forEach((toggle) =>
+    toggle.addEventListener("change", (e) => {
+      checkTrick(e.target);
+    })
+  );
+
+  function checkTrick(target) {
+    if (great.checked && fast.checked && cheap.checked) {
+      if (great === target) {
+        fast.checked = false;
+      } else if (cheap === target) {
+        great.checked = false;
+      } else {
+        cheap.checked = false;
+      }
+    }
+  }
+}
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 35:
+if (document.querySelector(".project-35") != null) {
 }
