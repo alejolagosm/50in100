@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-39, .project-30, .project-34, .project-33 {
+.project-39, .project-30, .project-37, .project-34, .project-33 {
   min-height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -636,10 +636,76 @@ input[class^=btn-]:disabled {
     transform: translate(-50%, -50%) rotate(-120deg);
   }
 }
-.project-30 {
+.project-37 {
   flex-direction: column;
+  background-color: #623aa2;
+}
+.project-37 .carrousel {
+  --width: 50vw;
+  background-image: linear-gradient(179.4deg, #84387a 14.6%, #be1831 104.7%);
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+.project-37 .carrousel h1.hidden {
+  display: none;
+}
+.project-37 .carrousel .img-container {
+  display: flex;
+  width: var(--width);
+  height: 50vh;
+  margin-bottom: 1rem;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in;
+}
+.project-37 .carrousel .img-container img {
+  min-width: var(--width);
+  object-fit: center;
+  transition: transform 2s ease-in;
+}
+.project-37 .carrousel .btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.project-37 .carrousel .btn-container .btn-car {
+  width: 30%;
+  background-image: linear-gradient(109.6deg, #e74c3c 11.2%, #cb4335 91.1%);
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  border: 1px solid;
+  padding: 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.project-37 .carrousel .btn-container .btn-car:hover {
+  background-image: linear-gradient(109.6deg, #cb4335 11.2%, #e74c3c 91.1%);
+  transform: scale(0.95);
 }
 
+@media (max-width: 500px) {
+  .project-37 .carrousel {
+    --width: 80vw;
+  }
+  .project-37 .carrousel .img-container {
+    position: relative;
+    width: var(--width);
+  }
+  .project-37 .carrousel .img-container img {
+    min-width: var(--width);
+  }
+  .project-37 .carrousel .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .project-37 .carrousel .btn-container .btn-car {
+    width: 80%;
+  }
+}
 .project-30 {
   flex-direction: column;
 }

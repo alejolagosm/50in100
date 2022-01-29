@@ -331,7 +331,7 @@ if (document.querySelector(".project-36") != null) {
 
   async function runFirstAnimation() {
     numbers[0].classList.add("in");
-    numbers.forEach((number, index) => {
+    numbers.forEach((number) => {
       number.addEventListener("animationend", (e) => {
         number.nextElementSibling.classList.add("in");
       });
@@ -351,6 +351,67 @@ if (document.querySelector(".project-36") != null) {
 }
 
 // ///////////////////////////////////////////////////////////////////////
-// Project 37:
+// Project 37: Who is that pokemon slider
 if (document.querySelector(".project-37") != null) {
+  const images = document.getElementById("img-cont");
+  const prev = document.getElementById("left");
+  const next = document.getElementById("right");
+  const select = document.getElementById("get");
+  const name = document.getElementById("name");
+
+  const img = document.querySelectorAll("#img-cont img");
+  const width = +getComputedStyle(images)
+    .getPropertyValue("--width")
+    .slice(0, 3);
+  let idx = 0;
+
+  let interval = setInterval(runInt, 2000);
+
+  function runInt() {
+    idx++;
+    changeImage();
+  }
+
+  function changeImage() {
+    if (idx > img.length - 1) {
+      idx = 0;
+    } else if (idx < 0) {
+      idx = img.length - 1;
+    }
+    images.style.transform = `translateX(${-idx * width}vw)`;
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(runInt, 2000);
+  }
+
+  prev.addEventListener("click", () => {
+    idx--;
+    changeImage();
+    resetInterval();
+  });
+
+  next.addEventListener("click", () => {
+    idx++;
+    changeImage();
+    resetInterval();
+  });
+
+  select.addEventListener("click", () => {
+    clearInterval(interval);
+    name.innerText = "It's " + img[idx].alt;
+    name.classList.remove("hidden");
+    img[idx].style.transform = "scale(0.5) rotate(360deg)";
+    setTimeout(() => {
+      img[idx].style.transform = "scale(1.0)";
+      name.classList.add("hidden");
+      resetInterval();
+    }, 3000);
+  });
+}
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 38:
+if (document.querySelector(".project-38") != null) {
 }
