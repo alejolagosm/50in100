@@ -724,9 +724,49 @@ input[class^=btn-]:disabled {
 }
 
 .project-39 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: linear-gradient(to bottom, rgba(218, 130, 16, 0.8), #da8210);
+  gap: 1rem;
+  align-items: stretch;
+}
+.project-39 .cell {
+  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to right, #eacda3, #d6ae7b);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  padding: 1rem;
+}
+.project-39 .cell img {
+  border-radius: 50%;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.project-39 .cell .id {
+  background-color: #da8210;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0.5rem 0rem;
 }
 
+@media (min-width: 1200px) {
+  .project-39 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .project-39 {
+    grid-template-columns: 1fr;
+  }
+}
 .project-30 {
   flex-direction: column;
 }

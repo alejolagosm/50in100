@@ -54,7 +54,6 @@ if (document.querySelector(".project-32") != null) {
       const data = await fetch("https://api.adviceslip.com/advice");
       const res = await data.json();
       nextmessage = res.slip.advice;
-      console.log(nextmessage);
     } catch (err) {
       return "Sorry, something is wrong";
     }
@@ -64,7 +63,7 @@ if (document.querySelector(".project-32") != null) {
 // ///////////////////////////////////////////////////////////////////////
 // Project 33:Random Password Generator
 if (document.querySelector(".project-33") != null) {
-  // form input fields
+  // Form input fields
   const passLength = document.querySelector(".input_1");
   const passSpecialWord = document.querySelector(".input_2");
   const passUpper = document.querySelector(".input_3");
@@ -98,13 +97,11 @@ if (document.querySelector(".project-33") != null) {
       hasSymbol
     );
   });
-
   // Copy to clipboard functionality
   passwordCopy.addEventListener("click", (e) => {
     navigator.clipboard.writeText(passwordResult.innerText);
     // alert("Copied the password:" + passwordResult.innerText);
   });
-
   // Generate the password looping through each required special character and adding the special word as necessary
   function generatePassword(length, specialWord, upper, number, symbol) {
     let genPassword =
@@ -125,7 +122,6 @@ if (document.querySelector(".project-33") != null) {
     const finalPassword = genPassword.slice(0, length);
     return finalPassword;
   }
-
   // Random Uppercase letter
   function getRandomUpper() {
     return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
@@ -412,7 +408,7 @@ if (document.querySelector(".project-37") != null) {
 }
 
 // ///////////////////////////////////////////////////////////////////////
-// Project 38:
+// Project 38: Color Board
 if (document.querySelector(".project-38") != null) {
   const grid = document.querySelector("#card_1");
   const size = 20;
@@ -428,12 +424,13 @@ if (document.querySelector(".project-38") != null) {
     });
     cell.addEventListener("mouseleave", function () {
       this.style.backgroundColor = "#0000";
-      this.style.transition = "2s ease";
+      this.style.transition = "3s ease";
     });
     grid.appendChild(cell);
   }
+}
 
-  // function setColor(cell) {
-  //   cell.style.backgroundColor = "red";
-  // }
+// ///////////////////////////////////////////////////////////////////////
+// Project 40:
+if (document.querySelector(".project-40") != null) {
 }
