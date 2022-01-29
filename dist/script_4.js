@@ -414,4 +414,26 @@ if (document.querySelector(".project-37") != null) {
 // ///////////////////////////////////////////////////////////////////////
 // Project 38:
 if (document.querySelector(".project-38") != null) {
+  const grid = document.querySelector("#card_1");
+  const size = 20;
+
+  for (let i = 0; i < size ** 2; i++) {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.addEventListener("mouseover", function () {
+      this.style.transition = "none";
+      this.style.backgroundColor = `hsl(${Math.floor(
+        Math.random() * 255 + 1
+      )},${Math.floor(Math.random() * 100 + 1)}%,50%)`;
+    });
+    cell.addEventListener("mouseleave", function () {
+      this.style.backgroundColor = "#0000";
+      this.style.transition = "2s ease";
+    });
+    grid.appendChild(cell);
+  }
+
+  // function setColor(cell) {
+  //   cell.style.backgroundColor = "red";
+  // }
 }
