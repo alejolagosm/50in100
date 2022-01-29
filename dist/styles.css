@@ -108,7 +108,7 @@ img {
 }
 
 .project-10, .project-7, .project-5, .project-4 {
-  height: calc(100vh - 13.2rem);
+  min-height: calc(100vh - 13.2rem);
   text-align: center;
 }
 

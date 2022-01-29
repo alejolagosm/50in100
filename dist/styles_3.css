@@ -108,7 +108,7 @@ img {
 }
 
 .project-28, .project-27, .project-24, .project-21 {
-  height: calc(100vh - 13.2rem);
+  min-height: calc(100vh - 13.2rem);
   text-align: center;
 }
 
