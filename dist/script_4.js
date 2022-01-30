@@ -11,7 +11,6 @@ burger.addEventListener("click", () => {
 });
 
 // Javascript for projects 32 to 40
-
 // ///////////////////////////////////////////////////////////////////////
 // Project 32: Auto Typing random advice
 if (document.querySelector(".project-32") != null) {
@@ -431,6 +430,18 @@ if (document.querySelector(".project-38") != null) {
 }
 
 // ///////////////////////////////////////////////////////////////////////
-// Project 40:
+// Project 40: Mobile Navigation
 if (document.querySelector(".project-40") != null) {
+  const images = document.querySelector(".img-container");
+  const btnNav = document.querySelectorAll(".btn");
+
+  btnNav.forEach((btn, idx) => {
+    btn.addEventListener("click", () => {
+      btnNav.forEach((btn) => {
+        btn.classList.remove("current");
+      });
+      btn.classList.add("current");
+      images.style.transform = `translateX(${-idx * 100}%)`;
+    });
+  });
 }
