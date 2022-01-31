@@ -77,3 +77,8 @@ if (document.querySelector(".project-42") != null) {
     if (!grid.classList.contains("small")) btnTrick.innerText = "Join them";
   });
 }
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 44:
+if (document.querySelector(".project-44") != null) {
+}

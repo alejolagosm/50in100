@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1372c28c63.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles_5.css" />
+    <title>Project 43: 2048 Clon</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="main-nav">
+      <div class="logo_burger">
+        <a href="index.html">
+          <img
+            src="img/logoal.png"
+            alt="A personal logo with my initials"
+            id="logo"
+          />
+        </a>
+        <div id="burger" class="burger-menu hidden">
+          <svg
+            class="burger-menu_svg"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <ul id="menu">
+        <ul id="menu">
+          <li>
+            <a href="index.html"> <i class="fas fa-home"></i> Back to main</a>
+          </li>
+          <li>
+            <a href="pj_42.html"
+              ><i class="fas fa-arrow-left"></i> Previous Project
+            </a>
+          </li>
+          <li>
+            <a href="pj_44.html">
+              Next Project <i class="fas fa-arrow-right"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://alejolagos.netlify.app/contact.html"
+              target="_blank"
+            >
+              Contact Me
+            </a>
+          </li>
+        </ul>
+      </ul>
+    </nav>
+    <!-- Project Title -->
+    <div class="flex">
+      <h1>Project #43: 2048 Clon <br />(Desktop Only)</h1>
+    </div>
+    <!-- Project content -->
+    <section class="flex project-43 p-2">
+      <div class="grid"></div>
+      <div class="stats">
+        <div>
+          Score:
+          <span class="score"></span>
+        </div>
+        <div class="result"></div>
+      </div>
+      <button class="btn-dark btnPlay" id="replay">Restart</button>
+    </section>
+    <!-- Footer -->
+    <footer id="main-footer">
+      <div class="footer-content container">
+        <p>A project By: Alejo Lagos</p>
+        <p>Copyright &copy; 2022. All rights reserved</p>
+        <div class="social">
+          <a href="https://co.linkedin.com/in/alejandrolagos1" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/alejolagosm" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://codepen.io/alejolagosm" target="_blank"
+            ><i class="fab fa-codepen"></i
+          ></a>
+          <a href="https://twitter.com/alejolagos12" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <script src="scripts/game2048.js"></script>
+  </body>
+</html>
