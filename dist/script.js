@@ -10,8 +10,7 @@ burger.addEventListener("click", () => {
   }
 });
 
-// Javascript for projects 1 to 5
-
+// Javascript for projects 1 to 10
 // Project 1: Slider Cards
 if (document.querySelector(".project-1") != null) {
   // Selecting Elements
@@ -31,22 +30,50 @@ if (document.querySelector(".project-1") != null) {
     });
   }
 }
+
+// ///////////////////////////////////////////////////////////////////////////
 // Project 2: Progress Steps
 if (document.querySelector(".project-2") != null) {
-  // Selecting Elements
+  // DOM Elements
+  const scales = document.querySelectorAll(".scale");
+  const question = document.getElementById("question");
+  const submit = document.getElementById("submit");
+  const questArr = [
+    "How satisfied are you with your current website?",
+    "How satisfied are you with your current sales level?",
+    "How happy are you with the evolution of your business?",
+    "How excited are you to be working together?",
+  ];
   const progress_2 = document.getElementById("progress");
   const prev_2 = document.getElementById("prev");
   const next_2 = document.getElementById("next");
   const circles_2 = document.querySelectorAll(".circle");
+
   // Index to define current step
   let currentActive = 1;
+
+  // Functionality to answer the poll
+  scales.forEach((scale) => {
+    scale.addEventListener("click", () => {
+      deactivateScales();
+      scale.classList.add("rated");
+    });
+  });
+
+  // Removing previous answers
+  function deactivateScales() {
+    scales.forEach((scale) => {
+      scale.classList.remove("rated");
+    });
+  }
+
   // Adding functionalities to the buttons
   next_2.addEventListener("click", () => {
     currentActive++;
     if (currentActive > circles_2.length) {
       currentActive = circles_2.length;
     }
-
+    question.innerText = questArr[currentActive - 1];
     update();
   });
   prev_2.addEventListener("click", () => {
@@ -56,8 +83,11 @@ if (document.querySelector(".project-2") != null) {
     }
     update();
   });
+
   // Function to update the loading bar and the circle border
   function update() {
+    deactivateScales();
+    scales[scales.length - 1].classList.add("rated");
     circles_2.forEach((circle, index) => {
       if (index < currentActive) {
         circle.classList.add("active");
@@ -66,21 +96,42 @@ if (document.querySelector(".project-2") != null) {
       }
     });
     const actives = document.querySelectorAll(".active");
-    console.log(actives);
     progress_2.style.width =
-      ((actives.length - 1) / (circles_2.length - 1)) * 100 + "%";
-
+      ((actives.length - 1) / (circles_2.length - 1)) * 99 + "%";
     if (currentActive === 1) {
       prev_2.disabled = true;
+      submit.disabled = true;
     } else if (currentActive === circles_2.length) {
       next_2.disabled = true;
+      submit.disabled = false;
     } else {
       next_2.disabled = false;
       prev_2.disabled = false;
+      submit.disabled = true;
     }
   }
+
+  // Submit button functionality
+  submit.addEventListener("click", () => {
+    const progress_cont = document.querySelector(".progress-container");
+    const feeback_cont = document.querySelector(".feedback-container");
+    progress_cont.style.display = "none";
+    prev_2.style.display = "none";
+    next_2.style.display = "none";
+    submit.style.display = "none";
+    feeback_cont.innerHTML = `
+        <div class="scales">
+          <div class="scale">
+            <span>💖</span>
+            <p>Thank you!</p>
+          </div>
+        </div>
+        <p>Your feedback is very important to me</p>
+    `;
+  });
 }
 
+// ///////////////////////////////////////////////////////////////////////////
 // Project 3: Rotating Navigation
 if (document.querySelector(".project-3") != null) {
   // Selecting DOM elements
@@ -96,6 +147,7 @@ if (document.querySelector(".project-3") != null) {
   );
 }
 
+// ///////////////////////////////////////////////////////////////////////////
 // Project 4: Hidden Search
 if (document.querySelector(".project-4") != null) {
   // Selecting DOM elements
@@ -109,6 +161,7 @@ if (document.querySelector(".project-4") != null) {
   });
 }
 
+// ///////////////////////////////////////////////////////////////////////////
 // Project 5: Blurring efect
 if (document.querySelector(".project-5") != null) {
   // Selecting DOM elements
@@ -155,6 +208,7 @@ if (document.querySelector(".project-5") != null) {
   }
 }
 
+// ///////////////////////////////////////////////////////////////////////////
 // Project 6: Scroll Animation
 if (document.querySelector(".project-6") != null) {
   // Selecting DOM elements
@@ -178,6 +232,7 @@ if (document.querySelector(".project-6") != null) {
   window.addEventListener("scroll", checkBoxes);
 }
 
+// ///////////////////////////////////////////////////////////////////////////
 // Project 7: Split landing
 if (document.querySelector(".project-7") != null) {
   // Selecting DOM elements
@@ -198,195 +253,8 @@ if (document.querySelector(".project-7") != null) {
   }
 }
 
-// Project 9: Drag&Drop Match Animals
-if (document.querySelector(".project-9") != null) {
-  // Initializing the DOM variables
-  const get_animals = document.getElementById("get-animals");
-  const drag_li = document.getElementById("drag-li");
-  const picture_li = document.getElementById("picture-li");
-  const check = document.getElementById("check");
-  const qt_animals = 10;
-
-  // Initialize arrays for the animal name and picture
-  let animals = [],
-    animalpics = [];
-
-  // Initialize the variables for the list comparisons and drag and drop events
-  let listItems1 = [];
-  let listItems2 = [];
-  let dragStartIndex;
-
-  // Simple timeout function to race the promise in case there is an error
-  const timeout = function (s) {
-    return new Promise(function (_, reject) {
-      setTimeout(function () {
-        reject(new Error(`Request took too long! Timeout after ${s} second`));
-      }, s * 1000);
-    });
-  };
-
-  // Get JSON from the API fetch call
-  const getJSON = async function (url) {
-    try {
-      const res = await Promise.race([fetch(url), timeout(5)]);
-      const data = await res.json();
-      if (!res.ok) throw new Error(`${data.message} (${res.status}) Sorry`);
-      return data;
-    } catch (err) {
-      throw err;
-    }
-  };
-
-  // Load the results from the API call based on a number of animals
-  const loadSearchResults = async function (number) {
-    try {
-      const data = await getJSON(
-        `https://zoo-animal-api.herokuapp.com/animals/rand/${number}`
-      );
-      // Adding the data to each array
-      data.forEach((animalInfo) => {
-        animals.push(animalInfo.name);
-        animalpics.push(animalInfo.image_link);
-      });
-      // Creating the list and adding it to the HTML
-      createList();
-    } catch (err) {
-      console.log(err);
-      throw err;
-    }
-  };
-
-  // Drag and drop event listeners
-  function dragStart() {
-    dragStartIndex = +this.closest("li").getAttribute("data-index");
-  }
-  function dragEnter() {
-    this.classList.add("over");
-  }
-  function dragOver(e) {
-    e.preventDefault();
-  }
-  function dragLeave() {
-    this.classList.remove("over");
-  }
-  function dragDrop() {
-    const dragEndIndex = +this.getAttribute("data-index");
-    swapItems(dragStartIndex, dragEndIndex);
-    this.classList.remove("over");
-  }
-
-  // Exchanging the items from the list after dragging the items
-  function swapItems(fromIndex, toIndex) {
-    const itemOne = listItems2[fromIndex].querySelector(".draggable");
-    const itemTwo = listItems2[toIndex].querySelector(".draggable");
-    listItems2[fromIndex].appendChild(itemTwo);
-    listItems2[toIndex].appendChild(itemOne);
-  }
-
-  // Checking the order of the items and checking if the player won
-  function checkOrder() {
-    listItems2.forEach((listItem, index) => {
-      const animalname = listItem.querySelector(".draggable").innerText.trim();
-      if (animalname !== animals[index]) {
-        listItem.classList.add("wrong");
-      } else {
-        listItem.classList.remove("wrong");
-        listItem.classList.add("right");
-      }
-    });
-    checkWinner();
-  }
-
-  // Function to check if the palyer won and activate modal window
-  function checkWinner() {
-    if (listItems2.every((listItem) => listItem.classList.contains("right"))) {
-      document.getElementById("modal-container").classList.remove("hidden");
-      document.getElementById("list-container").classList.add("hidden");
-    }
-  }
-
-  // Adding the drag and drop event listeners for each item on the list
-  function adddraglisteners() {
-    const draggables = document.querySelectorAll(".draggable");
-    const draglistItems = document.querySelectorAll(".drag-li li");
-    draggables.forEach((draggable) =>
-      draggable.addEventListener("dragstart", dragStart)
-    );
-    draglistItems.forEach((item) => {
-      item.addEventListener("dragover", dragOver);
-      item.addEventListener("drop", dragDrop);
-      item.addEventListener("dragenter", dragEnter);
-      item.addEventListener("dragleave", dragLeave);
-    });
-  }
-
-  // Creating the list of the animals after the API call
-  function createList() {
-    // Creating the list of the animal pics
-    [...animalpics].forEach((animalpic, index) => {
-      const listItem = document.createElement("li");
-      listItem.setAttribute("data-index", index);
-      listItem.innerHTML = `
-  <span class="number">${index + 1}</span>
-  <div>
-  <img src=${animalpic} alt="Animal Picture" id="animal-pic" />
-  </div>`;
-      listItems1.push(listItem);
-      picture_li.appendChild(listItem);
-    });
-    // Creating the list of the animal names
-    [...animals]
-      .map((animal) => ({ value: animal, sort: Math.random() }))
-      .sort((value1, valueb) => value1.sort - valueb.sort)
-      .map((object) => object.value)
-      .forEach((animal, index) => {
-        const listItem = document.createElement("li");
-        listItem.setAttribute("data-index", index);
-        listItem.innerHTML = `
-        <span class="number">${index + 1}</span>
-        <div class ="draggable" draggable ="true">
-        <p class="name">${animal}</p>
-        <i class="fas fa-grip-lines"></i>
-        </div>
-        `;
-        listItems2.push(listItem);
-        drag_li.appendChild(listItem);
-      });
-
-    adddraglisteners();
-  }
-
-  // Init On DOM Load
-  document.addEventListener("DOMContentLoaded", init);
-
-  // Init the DOM events on load
-  function init() {
-    get_animals.addEventListener("click", startGame);
-  }
-
-  // Start the game
-  function startGame() {
-    document.getElementById("init-container").classList.add("hidden");
-    loadSearchResults(qt_animals);
-    document.getElementById("list-container").classList.remove("hidden");
-    check.addEventListener("click", checkOrder);
-  }
-
-  // Re-start the game
-  const replaybtn = document.getElementById("re-start");
-  replaybtn.addEventListener("click", startAgain);
-  function startAgain() {
-    document.getElementById("modal-container").classList.add("hidden");
-    document.getElementById("init-container").classList.remove("hidden");
-    picture_li.innerHTML = "";
-    drag_li.innerHTML = "";
-    animals.splice(0, animals.length);
-    animalpics.splice(0, animalpics.length);
-    listItems1.splice(0, listItems1.length);
-    listItems2.splice(0, listItems2.length);
-  }
-}
-
+// ///////////////////////////////////////////////////////////////////////////
+// Project 10: DadJokes
 if (document.querySelector(".project-10") != null) {
   const jokeEl = document.getElementById("joke");
   const jokeBtn = document.getElementById("jokeBtn");

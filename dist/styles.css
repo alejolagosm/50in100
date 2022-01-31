@@ -328,16 +328,51 @@ input[class^=btn-]:disabled {
   }
 }
 .project-2 {
-  height: calc(100vh - 13.2rem);
+  min-height: calc(100vh - 13.2rem);
   text-align: center;
   flex-direction: column;
+}
+.project-2 .feedback-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background-color: #f0d290;
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2), -0.5rem -0.5rem 2rem rgba(0, 0, 0, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+}
+.project-2 .feedback-container .scales {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+.project-2 .feedback-container .scales .scale {
+  display: flex;
+  flex-direction: column;
+  background-color: inherit;
+  border: none;
+  padding: 0.5rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.project-2 .feedback-container .scales .scale span {
+  font-size: 5rem;
+  padding-bottom: 0.5rem;
+}
+.project-2 .feedback-container .scales .scale:hover, .project-2 .feedback-container .scales .scale.rated {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), -10px -10px 20px rgba(0, 0, 0, 0.4);
 }
 .project-2 .progress-container {
   display: flex;
   justify-content: space-between;
   position: relative;
   margin-bottom: 2rem;
-  max-width: 100%;
   width: 25rem;
 }
 .project-2 .progress-container:before {
@@ -348,11 +383,11 @@ input[class^=btn-]:disabled {
   left: 0;
   transform: translateY(-50%);
   height: 4px;
-  width: 100%;
+  width: 95%;
   z-index: -1;
 }
-.project-2 .progress {
-  background-color: #a3423c;
+.project-2 .progress-container .progress {
+  background-color: #781d42;
   position: absolute;
   top: 50%;
   left: 0;
@@ -362,7 +397,7 @@ input[class^=btn-]:disabled {
   z-index: -1;
   transition: 0.4s ease;
 }
-.project-2 .circle {
+.project-2 .progress-container .circle {
   background-color: #fff;
   color: #333;
   border-radius: 50%;
@@ -371,10 +406,25 @@ input[class^=btn-]:disabled {
   border: 1px solid #f0d290;
   transition: 0.4s ease;
 }
-.project-2 .active {
+.project-2 .progress-container .active {
   border-color: #781d42;
 }
+.project-2 .hidden {
+  display: none;
+}
 
+@media (max-width: 500px) {
+  .project-2 .feedback-container {
+    margin-bottom: 2rem;
+  }
+  .project-2 .feedback-container .scales {
+    flex-direction: column;
+  }
+  .project-2 .progress-container {
+    margin-bottom: 1rem;
+    width: 18rem;
+  }
+}
 .project-3 {
   overflow-x: hidden;
   color: #222;
