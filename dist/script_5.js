@@ -51,3 +51,29 @@ if (document.querySelector(".project-41") != null) {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
   }
 }
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 42:Fun with 3D
+if (document.querySelector(".project-42") != null) {
+  const grid = document.querySelector(".grid");
+  const btnTrick = document.querySelector("#trick");
+  const pokeArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 25, 27, 35, 37, 39, 52, 54];
+  const pokemon = pokeArray[Math.floor(Math.random() * pokeArray.length)];
+  const cellsQt = 16;
+
+  for (let i = 0; i < cellsQt; i++) {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.style.backgroundImage = `url("img/${pokemon}.svg")`;
+    cell.style.backgroundPosition = `${(i % 4) * -100}px ${
+      ((i - (i % 4)) / 4) * -100
+    }px`;
+    grid.appendChild(cell);
+  }
+
+  btnTrick.addEventListener("click", () => {
+    grid.classList.toggle("small");
+    if (grid.classList.contains("small")) btnTrick.innerText = "Split them";
+    if (!grid.classList.contains("small")) btnTrick.innerText = "Join them";
+  });
+}
