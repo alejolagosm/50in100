@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-28, .project-27, .project-24, .project-21 {
+.project-28, .project-24, .project-21 {
   min-height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -1142,6 +1142,7 @@ input[class^=btn-]:disabled {
   }
 }
 .project-27 {
+  height: calc(100vh - 13.2rem);
   display: flex;
   justify-content: stretch;
   overflow: hidden;

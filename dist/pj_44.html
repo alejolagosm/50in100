@@ -12,8 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles_4.css" />
-    <title>Project 39: Love of Dog</title>
+    <link rel="stylesheet" href="styles_5.css" />
+    <title>Project 44: HP Character Filter</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -49,12 +49,12 @@
             <a href="index.html"> <i class="fas fa-home"></i> Back to main</a>
           </li>
           <li>
-            <a href="pj_38.html"
+            <a href="pj_43.html"
               ><i class="fas fa-arrow-left"></i> Previous Project
             </a>
           </li>
           <li>
-            <a href="pj_40.html">
+            <a href="pj_45.html">
               Next Project <i class="fas fa-arrow-right"></i>
             </a>
           </li>
@@ -71,10 +71,23 @@
     </nav>
     <!-- Project Title -->
     <div class="flex">
-      <h1>Project #39: I💘DOGS</h1>
+      <h1>Project #44: Harry Potter Character Filter</h1>
     </div>
     <!-- Project content -->
-    <section class="flex project-39 p-2" id="grid"></section>
+    <section class="flex project-44 p-2">
+      <div class="container_hp">
+        <header class="search_cont">
+          <h2>Character Filter</h2>
+          <p>Search by Name or House</p>
+          <input class="filter" type="text" placeholder="Harry" />
+        </header>
+        <ul class="character_cont">
+          <li>
+            <h3>Loading...</h3>
+          </li>
+        </ul>
+      </div>
+    </section>
     <!-- Footer -->
     <footer id="main-footer">
       <div class="footer-content container">
@@ -102,6 +115,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="scripts/axios.js"></script>
+    <script src="scripts/hp.js"></script>
   </body>
 </html>
