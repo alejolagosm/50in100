@@ -23,6 +23,7 @@ Some cool UI components for websites:
 - Checkboxes (34)
 - Animations (36, 42)
 - Mobile Navigation Emulator (40)
+- Custom Range Slider (45)
 - Full website design with several UI components (50)
 
 Some fun games:
@@ -44,6 +45,7 @@ Some fun with APIs:
 - Marvel (30)
 - Random Advice (32)
 - Harry Potter (44)
+- Trivia API (46)
 
 Interesting JS libraries:
 
