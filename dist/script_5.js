@@ -125,6 +125,84 @@ if (document.querySelector(".project-45") != null) {
 }
 
 // ///////////////////////////////////////////////////////////////////////
-// Project 46:
-if (document.querySelector(".project-46") != null) {
+// Project 47: Testimonials
+if (document.querySelector(".project-47") != null) {
+  const testimonial_container = document.querySelector(
+    ".testimonials_container"
+  );
+
+  // API URLs
+  const API_URL = "https://randomuser.me/api?results=5";
+  // const TEST_API_URL = "https://litipsum.com/api/5/json";
+  const TEST_API_URL = "http://loremricksum.com/api/?paragraphs=4&words=4";
+
+  let users,
+    tests = [];
+  let currentUser = 0;
+  async function getData() {
+    try {
+      const res = await fetch(API_URL);
+      const res_2 = await fetch(TEST_API_URL);
+      const data = await res.json();
+      const data_2 = await res_2.json();
+      users = data.results;
+      tests = data_2.data;
+      createTestimonial();
+      console.log(data_2);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  getData();
+
+  function createTestimonial() {
+    testimonial_container.innerHTML = `
+    <div class="progress_bar"></div>
+        <div class="testimony">
+    <i class="fas fa-quote-left"></i>
+    <p class="testimony_text">
+      ${tests[currentUser]?.slice(0, 150)}
+    </p>
+    <i class="fas fa-quote-right"></i>
+  </div>
+  <div class="profile">
+    <img
+      class="profile_img"
+      src="${users[currentUser].picture.medium}"
+      alt="Profile picture"
+    />
+    <div>
+      <h3 class="profile_name">${
+        users[currentUser].name.first + " " + users[currentUser].name.last
+      }</h3>
+      <h4 class="profile_location">${
+        users[currentUser].location.state +
+        ", " +
+        users[currentUser].location.country
+      }</h4>
+    </div>
+    `;
+    currentUser++;
+    setInterval(changes, 10000);
+  }
+
+  function changes() {
+    const profile_testimony = document.querySelector(".testimony_text");
+    const profile_img = document.querySelector(".profile_img");
+    const profile_name = document.querySelector(".profile_name");
+    const profile_location = document.querySelector(".profile_location");
+
+    profile_testimony.innerText = tests[currentUser];
+    profile_img.src = users[currentUser].picture.medium;
+    profile_name.innerText =
+      users[currentUser].name.first + " " + users[currentUser].name.last;
+    profile_location.innerText =
+      users[currentUser].location.state +
+      ", " +
+      users[currentUser].location.country;
+    console.log(currentUser);
+    currentUser++;
+    if (currentUser >= users.length) currentUser = 0;
+  }
 }
