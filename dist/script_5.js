@@ -79,6 +79,52 @@ if (document.querySelector(".project-42") != null) {
 }
 
 // ///////////////////////////////////////////////////////////////////////
-// Project 45:
+// Project 45: Sunrise Slider
 if (document.querySelector(".project-45") != null) {
+  const pj_cont = document.querySelector(".project-45");
+  const range = document.getElementById("range");
+  range.addEventListener("input", (e) => {
+    const value = e.target.value;
+    const label = e.target.nextElementSibling;
+    const rangeWidth = +getComputedStyle(e.target)
+      .getPropertyValue("width")
+      .slice(0, -2);
+    const labelWidth = +getComputedStyle(label)
+      .getPropertyValue("width")
+      .slice(0, -2);
+
+    const max = +e.target.max;
+    const min = +e.target.min;
+
+    const left =
+      value * (rangeWidth / max) -
+      labelWidth / 2 +
+      scaleRange(value, min, max, 10, -10);
+    label.innerHTML = `5:${
+      Math.round(scaleRange(value, min, max, 0, 59), 0) < 10
+        ? "0" + Math.round(scaleRange(value, min, max, 0, 59), 0)
+        : Math.round(scaleRange(value, min, max, 0, 59), 0)
+    } AM`;
+    label.style.left = `${left}px`;
+    pj_cont.style.backgroundImage = `linear-gradient(
+      to top,
+      #58151a ,
+      #bc2909,
+      #ba6d09,
+      #71a8ee ${value}%,
+      #3072eb,
+      #1552c6,
+      #0542a8 100%
+    )`;
+  });
+
+  // This is to map an interval of numbers to a different set of values
+  function scaleRange(num, in_min, in_max, out_min, out_max) {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+  }
+}
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 46:
+if (document.querySelector(".project-46") != null) {
 }

@@ -13,9 +13,8 @@ This a list of projects by categories (Number of the project in parentheses)
 Some cool UI components for websites:
 
 - Sliders: Expanding (1), Duplicate Background (19), Vertical (27), Animated (37).
-- Progress Steps (2)
-- Navigation Menus: Rotating (3), Animated (15)
-- Search widgets (4)
+- UI Feedback Design (2)
+- Navigation Menus: Rotating (3), Hidden Search (4)
 - Split Landing Page (7)
 - Cards: Pure Rotating CSS Cards (8)
 - Accordion (13)
