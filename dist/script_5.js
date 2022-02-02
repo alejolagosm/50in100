@@ -256,3 +256,64 @@ if (document.querySelector(".project-48") != null) {
   // }
   // getData();
 }
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 49: To do list
+if (document.querySelector(".project-49") != null) {
+  const form = document.getElementById("form");
+  const task_pending = document.querySelector(".task_pending");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const task_name = e.target.task_name.value;
+    if (task_name) {
+      addTask(task_name, e.target.level.value);
+    }
+  });
+
+  function addTask(name, level = "Easy") {
+    const task = document.createElement("div");
+    task.classList.add("task");
+    task.classList.add("pending");
+    const level_text = level.charAt(0).toUpperCase() + level.slice(1);
+    task.innerHTML = `
+    <div class="task_info">
+    <h4>${name}</h4>
+    <p class="level ${level.toLowerCase()}">${level_text}</p>
+    </div>
+    <button class="toDo">
+      <i class="far fa-check-circle"></i>
+    </button>
+    `;
+    task_pending.appendChild(task);
+  }
+
+  const pendingTasks = document.querySelector(".task_pending");
+  const doneTasks = document.querySelector(".task_made");
+
+  pendingTasks.addEventListener("click", (e) => {
+    let btn = e.target.closest(".toDo");
+    console.log(btn);
+    if (btn) {
+      btn.classList.remove("toDo");
+      btn.classList.add("done");
+      btn.innerHTML = `<i class="fas fa-undo"></i>`;
+      const task = btn.closest(".task");
+      task.classList.remove("pending");
+      doneTasks.appendChild(task);
+    }
+  });
+
+  doneTasks.addEventListener("click", (e) => {
+    let btn = e.target.closest(".done");
+    console.log(btn);
+    if (btn) {
+      btn.classList.add("toDo");
+      btn.classList.remove("done");
+      btn.innerHTML = `<i class="far fa-check-circle"></i>`;
+      const task = btn.closest(".task");
+      task.classList.add("pending");
+      pendingTasks.appendChild(task);
+    }
+  });
+}

@@ -730,10 +730,105 @@ input[class^=btn-]:disabled {
     width: 70%;
   }
 }
-.project-40 {
+.project-49 {
+  min-height: calc(100vh - 13.2rem);
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  padding: 0.5rem;
+  background-color: #8bc6ec;
+  background-image: linear-gradient(120deg, #8bc6ec 0%, #9599e2 100%);
+}
+.project-49 .intro {
+  align-self: center;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+.project-49 .intro form > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.project-49 .intro input[type],
+.project-49 .intro select {
+  width: 90%;
+  padding: 0.5rem 5px;
+  background-color: #6284ff;
+  border: none;
+  border-radius: 0.5rem;
+}
+.project-49 .intro input[type]::placeholder,
+.project-49 .intro select::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.project-49 .intro input[type=submit] {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.project-49 .intro input[type=submit]:active {
+  transform: scale(0.9);
+}
+.project-49 .task_pending,
+.project-49 .task_made {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  align-items: center;
+  gap: 1rem;
+}
+.project-49 .task_pending h1,
+.project-49 .task_made h1 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.project-49 .task_made .task h4 {
+  text-decoration: line-through;
+}
+.project-49 .task {
+  width: 90%;
+  display: flex;
+  padding: 0.5rem;
+  background-color: #00dbde;
+  background-image: linear-gradient(90deg, #00dbde 0%, #6284ff 100%);
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.project-49 .task .level {
+  font-weight: bold;
+}
+.project-49 .task .level.easy {
+  color: #0c7475;
+}
+.project-49 .task .level.hard {
+  color: red;
+}
+.project-49 .task .level.medium {
+  color: #ff9153;
+}
+.project-49 .task button {
+  margin: auto 0;
+  padding: 0.25rem;
+  background-color: #f0d290;
+  border: none;
+  cursor: pointer;
+  border-radius: 10%;
+  font-size: 1.2rem;
 }
 
+@media (max-width: 500px) {
+  .project-49 {
+    grid-template-columns: 1fr;
+  }
+}
 .project-40 {
   flex-direction: column;
 }

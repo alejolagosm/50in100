@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles_5.css" />
-    <title>Project 4:</title>
+    <title>Project 49: Good old To do List</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -49,12 +49,12 @@
             <a href="index.html"> <i class="fas fa-home"></i> Back to main</a>
           </li>
           <li>
-            <a href="pj_40.html"
+            <a href="pj_48.html"
               ><i class="fas fa-arrow-left"></i> Previous Project
             </a>
           </li>
           <li>
-            <a href="pj_45.html">
+            <a href="pj_50.html">
               Next Project <i class="fas fa-arrow-right"></i>
             </a>
           </li>
@@ -71,10 +71,54 @@
     </nav>
     <!-- Project Title -->
     <div class="flex">
-      <h1>Project #4:</h1>
+      <h1>Project #49:To do list</h1>
     </div>
     <!-- Project content -->
-    <section class="flex project-4 p-4"></section>
+    <section class="project-49">
+      <div class="intro">
+        <h1>TODAY</h1>
+        <h4>Write what you want to accomplish today</h4>
+        <p>Modify their status as you achieve them</p>
+        <form id="form">
+          <input
+            type="text"
+            name="task_name"
+            id="task_name"
+            placeholder="Task Name"
+          />
+          <select name="level" id="level">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <input type="submit" id="submit" value="Add task" />
+        </form>
+      </div>
+      <div class="task_pending">
+        <h1>TO DO</h1>
+        <div class="task task_toDo">
+          <div class="task_info">
+            <h4>Be happy</h4>
+            <p class="level easy">Easy</p>
+          </div>
+          <button class="toDo">
+            <i class="far fa-check-circle"></i>
+          </button>
+        </div>
+      </div>
+      <div class="task_made">
+        <h1>DONE</h1>
+        <div class="task">
+          <div class="task_info">
+            <h4>Lower Stress</h4>
+            <p class="level hard">Hard</p>
+          </div>
+          <button class="done">
+            <i class="fas fa-undo"></i>
+          </button>
+        </div>
+      </div>
+    </section>
     <!-- Footer -->
     <footer id="main-footer">
       <div class="footer-content container">
