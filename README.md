@@ -25,6 +25,7 @@ Some cool UI components for websites:
 - Mobile Navigation Emulator (40)
 - Custom Range Slider (45)
 - Full website design with several UI components (50)
+- Testimonials with a random Twist (47)
 
 Some fun games:
 
@@ -46,6 +47,7 @@ Some fun with APIs:
 - Random Advice (32)
 - Harry Potter (44)
 - Trivia API (46)
+- Random Users and Random Rick&Morty Quotes (47)
 
 Interesting JS libraries:
 
@@ -70,7 +72,7 @@ Other fun projects:
 - Password Strength Checker (41)
 
 I started this project January 01, 2022.
-The goal is to add at least one new project every day until I'm finished. Currently on project 44/50.
+The goal is to add at least one new project every day until I'm finished. Currently on project 47/50.
 
 Check out the live page of the project at
 https://50in100projects.netlify.app/

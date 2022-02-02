@@ -148,7 +148,6 @@ if (document.querySelector(".project-47") != null) {
       users = data.results;
       tests = data_2.data;
       createTestimonial();
-      console.log(data_2);
     } catch (err) {
       console.log(err);
     }
@@ -201,8 +200,59 @@ if (document.querySelector(".project-47") != null) {
       users[currentUser].location.state +
       ", " +
       users[currentUser].location.country;
-    console.log(currentUser);
     currentUser++;
     if (currentUser >= users.length) currentUser = 0;
   }
+}
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 48: Image Grid with Side Menu
+if (document.querySelector(".project-48") != null) {
+  const URL = "https://source.unsplash.com/random/";
+  const grid = document.querySelector(".photo_grid");
+  const imgQt = 9;
+
+  function fillgrid() {
+    grid.innerHTML = ``;
+    for (let i = 0; i < imgQt; i++) {
+      const img = document.createElement("img");
+      img.src = `${URL}${getRandSize()}`;
+      grid.appendChild(img);
+    }
+  }
+  fillgrid();
+
+  function getRandSize() {
+    return `${getRandomNr()}x${getRandomNr()}`;
+  }
+  function getRandomNr() {
+    return Math.floor(Math.random() * 30) + 300;
+  }
+
+  const openBtn = document.querySelector(".open-btn");
+  const closeBtn = document.querySelector(".close-btn");
+  const toolsNav = document.querySelectorAll(".tools_nav");
+
+  openBtn.addEventListener("click", () => {
+    toolsNav.forEach((nav) => nav.classList.add("visible"));
+  });
+  closeBtn.addEventListener("click", () => {
+    toolsNav.forEach((nav) => nav.classList.remove("visible"));
+  });
+
+  // Functionality pending to implement, make the other list options available with the picsum API
+  // Alternate API to get other images
+  // let images = [];
+  // const API_URL = "https://picsum.photos/v2/list?page=1&limit=9&blur=2";
+  // async function getData(url) {
+  //   try {
+  //     const res = await fetch(url);
+  //     const data = await res.json();
+  //     images = data;
+  //     console.log(images);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+  // getData();
 }

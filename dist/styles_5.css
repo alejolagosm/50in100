@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-40, .project-46, .project-45, .project-44, .project-42, .project-41 {
+.project-40, .project-48, .project-46, .project-45, .project-44, .project-42, .project-41 {
   min-height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -641,10 +641,95 @@ input[class^=btn-]:disabled {
     font-size: 2rem;
   }
 }
-.project-40 {
-  flex-direction: column;
+.project-48 {
+  height: auto;
+  position: relative;
+}
+.project-48 .open-btn,
+.project-48 .close-btn {
+  background-color: #781d42;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.project-48 .open-btn i,
+.project-48 .close-btn i {
+  font-size: 1.5rem;
+}
+.project-48 .open-btn.hidden,
+.project-48 .close-btn.hidden {
+  display: none;
+}
+.project-48 .open-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+.project-48 .close-btn {
+  right: 1rem;
+  background-color: #f0d290;
+  margin-bottom: 1rem;
+}
+.project-48 .tools_nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.5s linear;
+  padding: 1rem;
+  text-align: right;
+}
+.project-48 .tools_nav.visible {
+  transform: translateX(0);
+}
+.project-48 .tools_nav.visible.main {
+  transition-delay: 0s;
+}
+.project-48 .tools_nav.main {
+  background-color: #781d42;
+  width: 20%;
+  transition-delay: 0.5s;
+}
+.project-48 .tools_nav.medium {
+  background-color: #a3423c;
+  width: 90%;
+  transition-delay: 0s;
+}
+.project-48 .tools_nav.medium.visible {
+  transition-delay: 0.5s;
+}
+.project-48 .tools_nav ul {
+  text-align: left;
+}
+.project-48 .tools_nav ul li {
+  border-right: 3px solid #f0d290;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.project-48 .tools_nav ul li.active {
+  border-right: 10px solid #781d42;
+}
+.project-48 .photo_grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.project-48 .photo_grid img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
+@media (max-width: 500px) {
+  .project-48 .photo_grid {
+    grid-template-columns: 1fr;
+  }
+  .project-48 .tools_nav.main {
+    width: 70%;
+  }
+}
 .project-40 {
   flex-direction: column;
 }
