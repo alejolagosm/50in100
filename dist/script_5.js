@@ -317,3 +317,74 @@ if (document.querySelector(".project-49") != null) {
     }
   });
 }
+
+// ///////////////////////////////////////////////////////////////////////
+// Project 50: Catch them Game
+if (document.querySelector(".project-50") != null) {
+  const screens = document.querySelectorAll(".screen");
+  const characters = document.querySelectorAll(".char_list");
+  const playBtn = document.querySelector(".playBtn");
+  const message = document.querySelector(".message");
+  const score = document.getElementById("score");
+  const timer = document.getElementById("time");
+
+  let seconds = 0;
+  let imgsrc = "";
+  let currentScr = 0;
+
+  playBtn.addEventListener("click", () => {
+    screens[0].classList.add("hidden");
+    screens[1].classList.remove("hidden");
+  });
+
+  characters.forEach((char) => {
+    char.addEventListener("click", (e) => {
+      imgsrc = e.target.src;
+      startGame();
+      screens[1].classList.add("hidden");
+      screens[2].classList.remove("hidden");
+    });
+  });
+
+  function startGame() {
+    setTimeout(() => {
+      createEls(1);
+    }, 500);
+    seconds++;
+    setInterval(increaseTime, 1000);
+  }
+
+  function increaseTime() {
+    let m = Math.floor(seconds / 60);
+    let s = seconds % 60;
+    m = m < 10 ? `0${m}` : m;
+    s = s < 10 ? `0${s}` : s;
+    seconds++;
+    timer.innerText = `Time ${m}:${s}`;
+
+    if (seconds > 20) {
+      message.classList.remove("hidden");
+    }
+  }
+
+  function createEls(amount = 2) {
+    for (let i = 1; i <= amount; i++) {
+      const element = document.createElement("img");
+      element.classList.add("small");
+      element.src = imgsrc;
+      element.style.transform = `rotate(${Math.random() * 360}deg)`;
+      element.style.top = `${Math.random() * 90}%`;
+      element.style.left = `${Math.random() * 90}%`;
+      screens[2].appendChild(element);
+    }
+  }
+
+  screens[2].addEventListener("click", (e) => {
+    if (e.target.classList.contains("small")) {
+      screens[2].removeChild(e.target);
+      currentScr++;
+      score.innerText = `Score: ${currentScr}`;
+      createEls();
+    }
+  });
+}

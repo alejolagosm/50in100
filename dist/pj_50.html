@@ -12,8 +12,12 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles_5.css" />
-    <title>Project 50: UI Typical Components</title>
+    <title>Project 50: Catch them game</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -66,10 +70,52 @@
     </nav>
     <!-- Project Title -->
     <div class="flex">
-      <h1>Project #50: Fun with UI Components</h1>
+      <h1>Project #50: CATCH THEM GAME</h1>
     </div>
     <!-- Project content -->
-    <section class="flex project-50 p-2"></section>
+    <section class="project-50">
+      <div class="screen">
+        <button class="playBtn" id="startBtn">Start Game</button>
+      </div>
+      <div class="screen hidden">
+        <h1>Choose your pokemon</h1>
+        <ul class="char_list">
+          <li>
+            <button class="chooseBtn">
+              <p>Pikachu</p>
+              <img src="img/25.svg" alt="" />
+            </button>
+          </li>
+          <li>
+            <button class="chooseBtn">
+              <p>Bulbasaur</p>
+              <img src="img/1.svg" alt="" />
+            </button>
+          </li>
+          <li>
+            <button class="chooseBtn">
+              <p>Charmander</p>
+              <img src="img/4.svg" alt="" />
+            </button>
+          </li>
+          <li>
+            <button class="chooseBtn">
+              <p>Squirtle</p>
+              <img src="img/7.svg" alt="" />
+            </button>
+          </li>
+        </ul>
+        <h4>Next: Click on its image when it appears on screen</h4>
+      </div>
+      <div class="screen game hidden">
+        <h3 id="time">Time 00:00</h3>
+        <h3 id="score">Score:</h3>
+        <h5 class="message hidden">
+          Aren`t you tired? <br />
+          The game never ends, or... does it?
+        </h5>
+      </div>
+    </section>
     <!-- Footer -->
     <footer id="main-footer">
       <div class="footer-content container">
