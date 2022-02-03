@@ -148,6 +148,7 @@ if (document.querySelector(".project-7") != null) {
   const left = document.querySelector(".left");
   const right = document.querySelector(".right");
   const container = document.querySelector(".project-7");
+  const heart = document.querySelector(".fa-heart");
   // Adding the functionality to the buttons, to add and remove CSS Classes
   events(left, "hover-left");
   events(right, "hover-right");
@@ -159,7 +160,40 @@ if (document.querySelector(".project-7") != null) {
     btn.addEventListener("mouseleave", () => {
       container.classList.remove(`${hover_pos}`);
     });
+    btn.addEventListener("click", (e) => {
+      likePic(e, hover_pos);
+    });
   }
+
+  const dogVotes = document.querySelector(".dog-times");
+  const catVotes = document.querySelector(".cat-times");
+
+  let dogVnumber = Math.floor(Math.random() * 90) + 10;
+  let catVnumber = Math.floor(Math.random() * 90) + 10;
+
+  function updateVotes() {
+    dogVotes.innerText = dogVnumber;
+    catVotes.innerText = catVnumber;
+  }
+
+  // left.addEventListener("click");
+
+  function likePic(e, type) {
+    if (type == "hover-left") dogVnumber++;
+    if (type == "hover-right") catVnumber++;
+    updateVotes();
+    const x = +e.clientX;
+    const y = +e.offsetY;
+    console.log(x, y, e);
+    heart.style.left = `${x}px`;
+    heart.style.top = `${y}px`;
+    heart.classList.add("grow");
+    setTimeout(() => {
+      heart.classList.remove("grow");
+    }, 700);
+  }
+
+  updateVotes();
 }
 
 // ///////////////////////////////////////////////////////////////////////////

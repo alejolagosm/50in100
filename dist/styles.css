@@ -761,34 +761,56 @@ input[class^=btn-]:disabled {
 }
 
 .project-6 {
-  flex-direction: column;
-  background-color: #a3423c;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background-image: linear-gradient(to left, #09203f 0%, #537895 100%);
 }
 .project-6 .box {
-  background-color: #781d42;
-  width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1rem;
   height: 200px;
-  margin: 10px;
-  border-radius: 5%;
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
   transition: transform 1s cubic-bezier(0.32, 0.25, 0.29, 1.43);
 }
+.project-6 .box img {
+  height: 90%;
+}
 .project-6 .box:nth-of-type(even) {
-  transform: translateX(-200%);
+  transform: translateX(-100vw);
 }
 .project-6 .box:nth-of-type(odd) {
-  transform: translateX(200%);
+  transform: translateX(100vw);
+}
+.project-6 .box:nth-of-type(2n + 3) {
+  transform: translateX(100vw) rotate(360deg);
+}
+.project-6 .box:nth-of-type(3n + 3) {
+  transform: translateX(-100vw) scale(0.2);
 }
 .project-6 .box.show {
   transform: translateX(0);
 }
 
+@media (min-width: 1200px) {
+  .project-6 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .project-6 {
+    grid-template-columns: 1fr;
+  }
+}
 .project-7 {
   position: relative;
   background: #a3423c;
   width: 100vw;
-  max-width: 1200px;
   margin: 0 auto;
+  user-select: none;
   --right-bg-color: rgba(87, 84, 236, 0.7);
   --right-btnhov-color: rgba(87, 84, 236, 1);
   --left-bg-color: rgba(193, 51, 141, 0.8);
@@ -797,8 +819,15 @@ input[class^=btn-]:disabled {
   --hover-w2: 25%;
   --speed: 1000ms;
 }
-.project-7 > *, .project-7 > *:before {
+.project-7 > *:not(i), .project-7 > *:before {
   transition: all var(--speed) ease-in-out;
+}
+.project-7 .title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%);
 }
 .project-7 .split {
   position: absolute;
@@ -834,7 +863,7 @@ input[class^=btn-]:disabled {
   width: 100%;
   height: 100%;
 }
-.project-7 h1 {
+.project-7 .split h1 {
   font-size: 4rem;
   color: #333;
   position: absolute;
@@ -843,7 +872,7 @@ input[class^=btn-]:disabled {
   transform: translateX(-50%);
   white-space: nowrap;
 }
-.project-7 .btn-7 {
+.project-7 .split .btn-7 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -856,8 +885,22 @@ input[class^=btn-]:disabled {
   width: 15rem;
   padding: 1rem;
 }
+.project-7 .fa-heart {
+  color: red;
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: opacity 0.5s ease-in;
+}
+.project-7 .fa-heart.grow {
+  transform: translate(-50%, -50%) scale(3);
+  opacity: 1;
+}
 .project-7.hover-left .left {
   width: var(--hover-w1);
+}
+.project-7.hover-left .left::before {
+  background-color: #0000;
 }
 .project-7.hover-left .right {
   width: var(--hover-w2);
@@ -865,17 +908,39 @@ input[class^=btn-]:disabled {
 .project-7.hover-right .right {
   width: var(--hover-w1);
 }
+.project-7.hover-right .right::before {
+  background-color: #0000;
+}
 .project-7.hover-right .left {
   width: var(--hover-w2);
 }
 
 @media (max-width: 500px) {
+  .project-7 {
+    padding: 0;
+  }
+  .project-7 .title h2,
+.project-7 .title h3 {
+    font-size: 0.8rem;
+  }
   .project-7 h1 {
     font-size: 2rem;
   }
   .project-7 .btn-7 {
     padding: 0.5rem;
     width: 25vw;
+  }
+  .project-7.hover-left .left {
+    width: 100%;
+  }
+  .project-7.hover-left .right {
+    width: 0;
+  }
+  .project-7.hover-right .right {
+    width: 100%;
+  }
+  .project-7.hover-right .left {
+    width: 0;
   }
 }
 .project-8 .row {

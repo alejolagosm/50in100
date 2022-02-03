@@ -42,7 +42,7 @@ Some fun with APIs:
 
 - Dad Jokes API (10)
 - The dogAPI (5, 39)
-- Pokemon (18)
+- PokeAPI (6, 18)
 - MovieDB (25)
 - Rick&Morty (26)
 - Marvel (30)
