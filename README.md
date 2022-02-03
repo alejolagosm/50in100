@@ -1,14 +1,15 @@
 # 50in100projects
 
-50 HTML, CSS (SCSS) and Vanila JS projects in 100 days
+50 HTML, CSS (SCSS) and Vanila JS projects
 
-Each html page is a different small project.
+Each html page is a different fron-end mini project.
 
-Most of the projects are based on the course by Brad Traversy at
-https://www.udemy.com/course/50-projects-50-days/
-But I tried to add my own little twist to each project, also added some games and other previous components I thought were worth including.
+Most of the ideas for each projects are based on the course by Brad Traversy at https://www.udemy.com/course/50-projects-50-days/
 
-This a list of projects by categories (Number of the project in parentheses)
+I tried to add my own little twist to each project, and some other ideas I found along the way.
+
+This a list of projects by categories
+(Number of the project in parentheses)
 
 Some cool UI components for websites:
 
@@ -24,8 +25,8 @@ Some cool UI components for websites:
 - Animations (36, 42)
 - Mobile Navigation Emulator (40)
 - Custom Range Slider (45)
-- Full website design with several UI components (50)
 - Testimonials with a random Twist (47)
+- Image Grid with side Menu (48)
 
 Some fun games:
 
@@ -35,6 +36,7 @@ Some fun games:
 - Rock, Paper, Scissors (29)
 - Minesweeper (31)
 - 2048 Clon (43)
+- Catch them Game (50)
 
 Some fun with APIs:
 
@@ -70,9 +72,10 @@ Other fun projects:
 - Notepad WebApp (35)
 - Hover Color Board (38)
 - Password Strength Checker (41)
+- ToDo List (49)
 
-I started this project January 01, 2022.
-The goal is to add at least one new project every day until I'm finished. Currently on project 47/50.
+I started this project January 01, 2022. Finished it on February 2nd.
+Currently working on the intro page design.
 
 Check out the live page of the project at
 https://50in100projects.netlify.app/
