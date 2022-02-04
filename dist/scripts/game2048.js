@@ -23,12 +23,15 @@ const cellsQt = 16;
 const width = Math.sqrt(cellsQt);
 let cells = [];
 let currentScore = 0;
+let lostGame = false;
 
 btnPlay.addEventListener("click", () => {
   grid.innerHTML = "";
   cells = [];
   currentScore = 0;
   createBoard();
+  lostGame = false;
+  resultD.style.color = "#000";
 });
 
 // Creating the board
@@ -50,7 +53,6 @@ createBoard();
 
 // Generate random cell to add the next Number 2
 function randNum() {
-  // The try catch block also serves to check loser
   try {
     let randomNum = Math.floor(Math.random() * cells.length);
     if (cells[randomNum].innerText == 0) {
@@ -58,10 +60,15 @@ function randNum() {
       cells[randomNum].style.backgroundColor = "#ede0c8";
     } else randNum();
   } catch {
-    resultD.innerText = "Sorry, you lost!";
-    resultD.color = "red";
-    document.removeEventListener("keyup", control);
+    isloser();
+    lostGame = true;
   }
+}
+
+function isloser() {
+  resultD.innerText = "Sorry, you lost!";
+  resultD.style.color = "red";
+  document.removeEventListener("keyup", control);
 }
 
 // Swipe right and left
@@ -244,16 +251,26 @@ function control(e) {
 // Check for winner
 function isWinner() {
   score.innerText = currentScore;
+  if (lostGame == true) {
+    // resultD.innerText = "Sorry, you lost!";
+    return;
+  }
   for (let i = 0; i < cellsQt; i++) {
     if (+cells[i].innerText == 2048) {
       resultD.innerText = "You win!";
       document.removeEventListener("keyup", control);
-    } else if (+cells[i].innerText == 8) {
-      resultD.innerText = "You've got this";
-    } else if (+cells[i].innerText == 512) {
-      resultD.innerText = "Great progress";
+      return;
     } else if (+cells[i].innerText == 1024) {
       resultD.innerText = "Almost There";
+      return;
+    } else if (+cells[i].innerText == 512) {
+      resultD.innerText = "Great progress";
+      return;
+    } else if (+cells[i].innerText == 128) {
+      resultD.innerText = "C'mon, you can do better";
+      return;
+    } else if (+cells[i].innerText == 8) {
+      resultD.innerText = "You've got this";
     }
   }
 }
