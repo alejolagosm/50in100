@@ -45,6 +45,7 @@ if (document.querySelector(".project-3") != null) {
   close_3.addEventListener("click", () =>
     container_3.classList.remove("show-nav")
   );
+  
 }
 
 // ////////////////////////////////////////////////////////////////////////////
@@ -115,30 +116,6 @@ if (document.querySelector(".project-5") != null) {
     loadText.style.opacity = scalerange(load, 0, 100, 1, 0);
     bg.style.filter = `blur(${scalerange(load, 0, 100, 70, 0)}px`;
   }
-}
-
-// ///////////////////////////////////////////////////////////////////////////
-// Project 6: Scroll Animation
-if (document.querySelector(".project-6") != null) {
-  // Selecting DOM elements
-  const boxes = document.querySelectorAll(".box");
-
-  function checkBoxes() {
-    const trigger = (window.innerHeight / 5) * 4;
-
-    boxes.forEach((box) => {
-      const boxtop = box.getBoundingClientRect().top;
-      if (boxtop < trigger) {
-        box.classList.add("show");
-      } else {
-        box.classList.remove("show");
-      }
-    });
-  }
-  //This is called initially to show that should appear right away
-  checkBoxes();
-  // Adding the functionality to the button, to add and remove CSS Classes
-  window.addEventListener("scroll", checkBoxes);
 }
 
 // ///////////////////////////////////////////////////////////////////////////

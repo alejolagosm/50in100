@@ -19,8 +19,8 @@ const submit = document.getElementById("submit");
 const questArr = [
   "How satisfied are you with your current website?",
   "How satisfied are you with your current sales level?",
-  "How happy are you with the evolution of your business?",
-  "How excited are you to be working together?",
+  "How satisfied are you with the evolution of your business?",
+  "How statisfied are you with my work?",
 ];
 const progress_2 = document.getElementById("progress");
 const prev_2 = document.getElementById("prev");
