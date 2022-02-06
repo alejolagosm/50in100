@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-48, .project-46, .project-45, .project-44, .project-42, .project-41 {
+.project-48, .project-46, .project-45, .project-44, .project-42 {
   min-height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -172,6 +172,9 @@ input[class^=btn-]:disabled {
 #main-nav ul {
   display: flex;
 }
+#main-nav ul.hidden {
+  display: none;
+}
 #main-nav .burger-menu_svg {
   width: 2rem;
   height: 2rem;
@@ -222,6 +225,8 @@ input[class^=btn-]:disabled {
 }
 
 .project-41 {
+  text-align: center;
+  min-height: 450px;
   position: relative;
 }
 .project-41 .bg-video {
@@ -285,10 +290,11 @@ input[class^=btn-]:disabled {
     clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
   }
   .project-41 .main-content {
-    bottom: 1rem;
-    right: 1.5rem;
+    top: 15%;
+    right: 1rem;
     transform: translate(0%, -10%);
-    padding: 1rem;
+    padding: 0.5rem;
+    min-width: 200px;
   }
 }
 .project-42 {
@@ -952,6 +958,32 @@ input[class^=btn-]:disabled {
     font-size: 0.8rem;
   }
 }
+@media (max-width: 800px) {
+  #main-nav {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  #main-nav ul {
+    display: flex;
+  }
+  #main-nav ul li {
+    font-size: 0.8rem;
+  }
+  #main-nav .burger-menu {
+    display: none;
+  }
+
+  #main-footer {
+    height: auto;
+  }
+  #main-footer .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+    height: auto;
+  }
+}
 @media (max-width: 500px) {
   .flex {
     flex-direction: column;
@@ -975,9 +1007,10 @@ input[class^=btn-]:disabled {
   }
   #main-nav ul {
     flex-direction: column;
-  }
-  #main-nav ul .hidden {
     display: none;
+  }
+  #main-nav ul.hidden {
+    display: block;
   }
   #main-nav .burger-menu {
     display: block;
