@@ -107,7 +107,7 @@ img {
   text-align: center;
 }
 
-.project-48, .project-46, .project-45, .project-44, .project-42 {
+.project-48, .project-46, .project-44, .project-42 {
   min-height: calc(100vh - 13.2rem);
   text-align: center;
 }
@@ -469,6 +469,8 @@ input[class^=btn-]:disabled {
 }
 
 .project-45 {
+  min-height: max(calc(100vh - 13.2rem), 400px);
+  text-align: center;
   flex-direction: column;
   position: relative;
   background-image: linear-gradient(to top, #58151a, #bc2909, #ba6d09, #71a8ee 50%, #3072eb, #1552c6, #0542a8 100%);
@@ -604,7 +606,7 @@ input[class^=btn-]:disabled {
   background-color: #4892e1;
   justify-self: flex-start;
   align-self: flex-start;
-  animation: enlarge 10s linear infinite;
+  animation: enlarge 5s linear infinite;
 }
 .project-47 .testimonials_container .testimony {
   display: flex;
@@ -837,7 +839,7 @@ input[class^=btn-]:disabled {
 }
 .project-50 {
   font-family: "Press Start 2P", sans-serif;
-  height: calc(100vh - 13.2rem);
+  min-height: max(calc(100vh - 13.2rem), 400px);
   overflow: hidden;
   background-image: linear-gradient(117deg, #7bd860 39.2%, white 156.2%);
   position: relative;
@@ -850,6 +852,7 @@ input[class^=btn-]:disabled {
   justify-content: center;
   height: 100%;
   width: 100vw;
+  padding: 1rem;
 }
 .project-50 .screen.hidden {
   display: none;
@@ -899,6 +902,7 @@ input[class^=btn-]:disabled {
 }
 .project-50 .screen.game {
   position: relative;
+  min-height: max(calc(100vh - 13.2rem), 400px);
 }
 .project-50 .screen.game #time {
   position: absolute;

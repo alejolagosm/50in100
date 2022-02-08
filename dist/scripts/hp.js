@@ -13,7 +13,7 @@ burger.addEventListener("click", () => {
 // Project specific JS
 // Random User API could be used for this project as well
 // const API_URL = "http://randomuser.me/api?results=100";
-const API_URL = "http://hp-api.herokuapp.com/api/characters";
+const API_URL = "https://hp-api.herokuapp.com/api/characters";
 
 // DOM elements
 const characters_cont = document.querySelector(".character_cont");

@@ -133,20 +133,29 @@ if (document.querySelector(".project-47") != null) {
 
   // API URLs
   const API_URL = "https://randomuser.me/api?results=5";
-  // const TEST_API_URL = "https://litipsum.com/api/5/json";
-  const TEST_API_URL = "http://loremricksum.com/api/?paragraphs=4&words=4";
+  const ADVICE_API_URL = "https://api.adviceslip.com/advice";
 
-  let users,
-    tests = [];
+  let users = [];
+  let advice = "It's really hard to make something great";
   let currentUser = 0;
+
+  async function getAdvice() {
+    try {
+      const res = await fetch(ADVICE_API_URL);
+      const data = await res.json();
+      advice = data.slip.advice;
+    } catch (err) {
+      console.log(err);
+      advice = "It's better to be kind than to be right";
+    }
+  }
+
   async function getData() {
     try {
+      getAdvice();
       const res = await fetch(API_URL);
-      const res_2 = await fetch(TEST_API_URL);
       const data = await res.json();
-      const data_2 = await res_2.json();
       users = data.results;
-      tests = data_2.data;
       createTestimonial();
     } catch (err) {
       console.log(err);
@@ -161,7 +170,7 @@ if (document.querySelector(".project-47") != null) {
         <div class="testimony">
     <i class="fas fa-quote-left"></i>
     <p class="testimony_text">
-      ${tests[currentUser]?.slice(0, 150)}
+      ${advice}
     </p>
     <i class="fas fa-quote-right"></i>
   </div>
@@ -183,16 +192,19 @@ if (document.querySelector(".project-47") != null) {
     </div>
     `;
     currentUser++;
-    setInterval(changes, 10000);
+    getAdvice();
+    setInterval(changes, 5000);
   }
 
   function changes() {
+    getAdvice();
     const profile_testimony = document.querySelector(".testimony_text");
     const profile_img = document.querySelector(".profile_img");
+
     const profile_name = document.querySelector(".profile_name");
     const profile_location = document.querySelector(".profile_location");
 
-    profile_testimony.innerText = tests[currentUser];
+    profile_testimony.innerText = advice;
     profile_img.src = users[currentUser].picture.medium;
     profile_name.innerText =
       users[currentUser].name.first + " " + users[currentUser].name.last;
