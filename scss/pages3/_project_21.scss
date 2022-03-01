@@ -1,0 +1,65 @@
+// Project
+.project-21 {
+  --hue: 200;
+  --saturation: 50%;
+  --elements-color: hsl(var(--hue), var(--saturation), 75%);
+  --background-color: hsl(var(--hue), var(--saturation), 20%);
+
+  @extend %project-base;
+  position: relative;
+  background-color: var(--background-color);
+
+  .paddle {
+    --position: 50;
+    position: absolute;
+    background-color: var(--elements-color);
+    top: calc(var(--position) * 1%);
+    transform: translateY(-50%);
+    width: 1vw;
+    height: 10vh;
+    &.left {
+      left: 1vw;
+    }
+    &.right {
+      right: 1vw;
+    }
+  }
+
+  .ball {
+    --x: 50;
+    --y: 50;
+    position: absolute;
+    background-color: var(--elements-color);
+    left: calc(var(--x) * 1%);
+    top: calc(var(--y) * 1%);
+    transform: translate(-50%, -50%);
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+  }
+
+  .score {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 3rem;
+    color: var(--elements-color);
+    & > * {
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 0 2vh;
+      opacity: 0.5;
+      margin: 1vh 0;
+    }
+    & > :first-child {
+      text-align: right;
+      border-right: 1px solid var(--elements-color);
+    }
+    & > :last-child {
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+}

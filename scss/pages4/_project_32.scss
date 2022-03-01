@@ -1,0 +1,42 @@
+// Project
+.project-32 {
+  height: calc(100vh - 13.2rem);
+  flex-direction: column;
+
+  --hue: 150;
+  --saturation: 30%;
+  --border-color: hsl(var(--hue), var(--saturation), 30%);
+  --background-color: hsl(var(--hue), var(--saturation), 60%);
+
+  background-color: var(--background-color);
+  position: relative;
+
+  div {
+    position: absolute;
+    top: 1rem;
+    background-color: var(--border-color);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
+
+    font-weight: bold;
+
+    input {
+      width: 50px;
+      padding: 0.5rem;
+      font-size: 1rem;
+      background-color: var(--background-color);
+      text-align: center;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+
+      &:focus {
+        outline: var(--border-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+}

@@ -1,0 +1,59 @@
+// Project 11-b: Key Codes
+.project-11 {
+  @extend %project-base;
+  flex-direction: column;
+  .key {
+    border: 1px solid $dark-color;
+    background-color: $medium-color;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 1rem;
+    flex-direction: column;
+    margin: 0.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    min-width: 10rem;
+    position: relative;
+    small {
+      position: absolute;
+      top: -2rem;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+}
+
+// Project 11-a: Handling Sounds
+.project-11-a {
+  @extend %project-base;
+  flex-direction: column;
+  #buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-11-a {
+    padding: 0.5rem;
+    height: auto;
+    #buttons {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+  }
+  .project-11 {
+    padding: 0.5rem;
+    height: auto;
+    .key {
+      margin: 2rem 0;
+    }
+  }
+}

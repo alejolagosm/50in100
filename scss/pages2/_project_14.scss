@@ -1,0 +1,72 @@
+// Project 14
+.project-14 {
+  @extend %project-base;
+  flex-direction: column;
+  // Background radient taken from mycolor.space/gradient
+  background-image: linear-gradient(
+    to right bottom,
+    #781d42,
+    #812341,
+    #8a2941,
+    #92303f,
+    #9a373e,
+    #a64741,
+    #b05645,
+    #ba6649,
+    #c98156,
+    #d79c66,
+    #e4b779,
+    #f0d290
+  );
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: 1rem;
+  }
+
+  .inputChoices {
+    min-width: 500px;
+    // min-height: 200px;
+    padding: 1rem;
+    // font-size: 1.5rem;
+    color: black;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+    }
+    &:valid {
+      outline-color: transparent;
+      border: none;
+    }
+  }
+  .choices {
+    margin-top: 1rem;
+  }
+  .choice {
+    background-color: $light-color;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin-right: 5px;
+    &.active {
+      background-color: $main-color;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-14 {
+    height: auto;
+    .inputChoices {
+      min-width: auto;
+    }
+    .choices {
+      gap: 0.5rem;
+    }
+  }
+}

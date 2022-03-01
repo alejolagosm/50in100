@@ -1,0 +1,124 @@
+// Project
+.project-20 {
+  padding: 2rem;
+  flex-direction: column;
+  background-color: #9d5353;
+  .clock {
+    padding: 1rem;
+    flex-direction: column;
+    background-image: linear-gradient(
+      to bottom,
+      #804c36,
+      #8d5a3f,
+      #996848,
+      #a57752,
+      #b1865d,
+      #b88d63,
+      #be9568,
+      #c59c6e,
+      #c89e6f,
+      #caa070,
+      #cda172,
+      #d0a373
+    );
+    border: 1px solid rgba(0, 0, 0);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px 20px 0 0;
+    .minute-marker {
+      fill: transparent;
+      stroke: $dark-color;
+      stroke-width: 4;
+      stroke-dasharray: 0.3 0.7;
+      stroke-dashoffset: 0.1;
+    }
+    .hour-marker {
+      fill: transparent;
+      stroke: $main-color;
+      stroke-width: 5;
+      stroke-dasharray: 0.3 4.7;
+      stroke-dashoffset: 0.1;
+    }
+    .hand {
+      stroke: #ffffff;
+      stroke-linecap: round;
+      &.hour {
+        stroke-width: 8;
+        stroke: $main-color;
+      }
+      &.minute {
+        stroke-width: 5;
+        stroke: $medium-color;
+      }
+      &.second {
+        stroke-width: 3;
+        stroke: $dark-color;
+      }
+    }
+
+    .numbers-container {
+      width: 100%;
+      padding: 1rem 0.5rem 1.5rem;
+      justify-content: center;
+      gap: 1rem;
+      & > span {
+        background-color: #804c36;
+        padding: 0.5rem 0.5rem;
+        font-weight: bold;
+        position: relative;
+        border-radius: 2px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        transform-origin: top;
+        min-width: 30px;
+
+        &.active {
+          animation: rotating 1s ease;
+        }
+
+        &:after {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        &.hour_num {
+          &:after {
+            content: "hh";
+          }
+        }
+        &.minutes_num {
+          &:after {
+            content: "min";
+          }
+        }
+        &.seconds_num {
+          &:after {
+            content: "sec";
+          }
+        }
+        &.day {
+          &:after {
+            content: "DD";
+          }
+        }
+        &.month {
+          &:after {
+            content: "MM";
+          }
+        }
+        &.year {
+          &:after {
+            content: "YY";
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-20 {
+    .numbers-container {
+      flex-direction: row;
+    }
+  }
+}

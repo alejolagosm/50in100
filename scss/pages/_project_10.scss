@@ -1,0 +1,30 @@
+// Project 3:Rotating Navigation
+.project-10 {
+  @extend %project-base;
+  flex-direction: column;
+  .container-10 {
+    background-color: $medium-color;
+    border-radius: 10px;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3), 5px 6px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 100%;
+    width: 800px;
+    h3 {
+      opacity: 0.5;
+      letter-spacing: 1.5px;
+    }
+    .joke {
+      font-size: 2rem;
+      line-height: 40px;
+      margin: 1.5rem auto;
+      max-width: 580px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-10 {
+    height: auto;
+    padding: 10px;
+  }
+}

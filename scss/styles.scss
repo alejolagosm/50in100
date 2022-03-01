@@ -1,0 +1,22 @@
+@import "base/config";
+@import "base/utilities";
+
+@import "components/btn";
+
+@import "layout/navigation";
+@import "layout/footer";
+
+@import "pages/index";
+@import "pages/project_1";
+@import "pages/project_2";
+@import "pages/project_3";
+@import "pages/project_4";
+@import "pages/project_5";
+@import "pages/project_6";
+@import "pages/project_7";
+@import "pages/project_8";
+@import "pages/project_9";
+@import "pages/project_10";
+
+// Import media queries
+@import "media";

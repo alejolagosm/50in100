@@ -1,0 +1,109 @@
+// Project 2: Progress Steps
+.project-2 {
+  min-height: calc(100vh - 13.2rem);
+  text-align: center;
+  flex-direction: column;
+
+  .feedback-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    background-color: $light-color;
+    box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2),
+      -0.5rem -0.5rem 2rem rgba(0, 0, 0, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    .scales {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      .scale {
+        display: flex;
+        flex-direction: column;
+        background-color: inherit;
+        border: none;
+        padding: 0.5rem;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        span {
+          font-size: 5rem;
+          padding-bottom: 0.5rem;
+        }
+        &:hover,
+        &.rated {
+          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4),
+            -10px -10px 20px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+
+  .progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 2rem;
+    width: 25rem;
+    &:before {
+      content: "";
+      background-color: $light-color;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 95%;
+      z-index: -1;
+    }
+
+    .progress {
+      background-color: $main-color;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 4px;
+      width: 0%;
+      z-index: -1;
+      transition: 0.4s ease;
+    }
+    .circle {
+      background-color: #fff;
+      color: $dark-color;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      border: 1px solid $light-color;
+      transition: 0.4s ease;
+    }
+    .active {
+      border-color: $main-color;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  // Project 2: Progress Steps
+  .project-2 {
+    .feedback-container {
+      .scales {
+        flex-direction: column;
+      }
+      margin-bottom: 2rem;
+    }
+    .progress-container {
+      margin-bottom: 1rem;
+      width: 18rem;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+// Project
+.project-29 {
+  min-height: calc(100vh - 13.2rem);
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  & > .hidden {
+    display: none;
+  }
+  .btn-main {
+    margin-top: 1.5rem;
+  }
+  .scores {
+    margin: 0.5rem;
+    display: flex;
+    width: 500px;
+    & > * {
+      padding: 0.25rem;
+      width: 50%;
+      border: 1px solid;
+    }
+    .player {
+      background-color: $medium-color;
+      margin-right: 10px;
+    }
+    .computer {
+      background-color: $light-color;
+    }
+  }
+  .move {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    i {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10%;
+    }
+
+    &.player {
+      & > * {
+        background-color: $main-color;
+        border-radius: 10%;
+        border: none;
+      }
+      button {
+        cursor: pointer;
+      }
+    }
+    &.computer {
+      & > * {
+        background-color: $light-color;
+        border-radius: 10%;
+        border: none;
+      }
+    }
+
+    &.chosen {
+      background-color: black;
+      i {
+        color: $main-color;
+      }
+    }
+  }
+
+  .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $light-color;
+    padding: 2rem;
+    z-index: 2;
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+
+  .overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    &.hidden {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-29 {
+    .scores {
+      width: 200px;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      .player {
+        margin: 0;
+      }
+    }
+  }
+}

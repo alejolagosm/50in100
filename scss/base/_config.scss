@@ -1,0 +1,51 @@
+// Variables
+$website-width: 1280px;
+$main-color: #781d42;
+$light-color: #f0d290;
+$medium-color: #a3423c;
+$dark-color: #333;
+$bg-image: url("img/fondo_main.jpg");
+
+// General Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-size: 32px;
+}
+body {
+  font-family: "Dosis", sans-serif;
+  line-height: 1.6;
+  background: #fff;
+}
+a {
+  text-decoration: none;
+  color: $dark-color;
+}
+ul {
+  list-style: none;
+}
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+img {
+  width: 100%;
+}
+// Logo
+#logo {
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+//Functions & Mixins
+@function set-text-color($color) {
+  @if (lightness($color) >50) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}

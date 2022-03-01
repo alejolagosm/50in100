@@ -1,0 +1,38 @@
+// Sass configuration
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Sass Compile",
+      "type": "shell",
+      "command": "sass scss/styles.scss dist/styles.css -w",
+      "group": "build"
+    },
+    {
+      "label": "Sass Compile 1120",
+      "type": "shell",
+      "command": "sass scss/styles_2.scss dist/styles_2.css -w",
+      "group": "build"
+    },
+    {
+      "label": "Sass Compile 2130",
+      "type": "shell",
+      "command": "sass scss/styles_3.scss dist/styles_3.css -w",
+      "group": "build"
+    },
+    {
+      "label": "Sass Compile 3140",
+      "type": "shell",
+      "command": "sass scss/styles_4.scss dist/styles_4.css -w",
+      "group": "build"
+    },
+    {
+      "label": "Sass Compile 4150",
+      "type": "shell",
+      "command": "sass scss/styles_5.scss dist/styles_5.css -w",
+      "group": "build"
+    }
+  ]
+}

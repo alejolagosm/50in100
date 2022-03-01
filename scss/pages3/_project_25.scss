@@ -1,0 +1,136 @@
+// Project
+.project-25 {
+  // @extend %project-base;
+  flex-direction: column;
+
+  .search_nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #35858b;
+    padding: 0.5rem 1rem;
+    form {
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    input[type="text"],
+    select {
+      background-color: #4fbdba;
+      padding: 0.25rem;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 10px;
+      max-width: 100px;
+      text-align: center;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: black;
+        // opacity: 0.5;
+      }
+    }
+
+    select {
+      padding: 0.2rem;
+    }
+
+    .submit {
+      padding: 0.5rem 1rem;
+      background-color: #072227;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+  }
+
+  .grid {
+    background-color: #072227;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    .card {
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      // cursor: pointer;
+      img {
+        // max-height: 200px;
+        width: 100%;
+      }
+      .info {
+        color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem 1rem;
+        letter-spacing: 0.5px;
+        transition: 0.3s ease-in;
+        span {
+          padding: 0.25rem 0.5rem;
+          border-radius: 3px;
+          font-weight: bold;
+          &.green {
+            color: darkgreen;
+            border: 2px solid darkgreen;
+          }
+          &.red {
+            color: darkred;
+            border: 2px solid darkred;
+          }
+        }
+      }
+
+      .overview {
+        background-color: #4fbdba;
+        opacity: 0.8;
+        color: black;
+        padding: 1rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 100%;
+        transform: translate(-101%, -50%);
+        transition: 0.5s ease-in;
+        display: grid;
+        place-content: center;
+        .overlay {
+          opacity: 1;
+          color: black;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+
+      &:hover {
+        .info {
+          opacity: 0;
+        }
+        .overview {
+          transform: translate(0%, -50%);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-25 {
+    .search_nav {
+      padding: 0.2rem;
+    }
+
+    .grid {
+      padding: 2rem;
+      grid-template-columns: 1fr;
+    }
+  }
+}

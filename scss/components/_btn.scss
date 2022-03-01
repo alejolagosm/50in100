@@ -1,0 +1,55 @@
+// Buttons
+%btn-shared {
+  display: inline-block;
+  border-radius: 6px;
+  margin: 5px;
+  padding: 0.8rem 2rem;
+  transition: all 0.5s;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  &-main {
+    @extend %btn-shared;
+    color: #f4f4f4;
+    background-color: $main-color;
+  }
+  &-medium {
+    @extend %btn-shared;
+    color: #f4f4f4;
+    background-color: $medium-color;
+  }
+  &-light {
+    @extend %btn-shared;
+    color: #333;
+    background-color: $light-color;
+  }
+  &-dark {
+    @extend %btn-shared;
+    color: #f4f4f4;
+    background-color: $dark-color;
+  }
+}
+// The ^ permits to select any color with the btn- in the name
+button[class^="btn-"]:hover,
+a[class^="btn-"]:hover,
+input[class^="btn-"]:hover {
+  background-color: $main-color;
+}
+
+button[class^="btn-"]:active,
+a[class^="btn-"]:active,
+input[class^="btn-"]:active {
+  transform: scale(0.9);
+}
+
+button[class^="btn-"]:disabled,
+a[class^="btn-"]:disabled,
+input[class^="btn-"]:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}

@@ -1,0 +1,60 @@
+// Project
+.project-23 {
+  flex-direction: column;
+  background-color: lightgray;
+  canvas {
+    border: 1px solid #000;
+    background-color: $light-color;
+  }
+
+  .controler {
+    background-color: $main-color;
+    border: 1px solid;
+    padding: 1rem;
+    width: 602px;
+    display: flex;
+
+    & > * {
+      height: auto;
+      font-size: 1.5rem;
+      padding: 0.25rem;
+      height: 50px;
+      width: 50px;
+      border: 1px solid;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      background-color: $light-color;
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+    & > :last-child {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-23 {
+    position: relative;
+    canvas {
+      height: 50vh;
+      width: 90vw;
+    }
+    .controler {
+      width: calc(90vw + 2px);
+    }
+    &:after {
+      content: "Sorry, this might not work on Mobile devices";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      font-size: 2rem;
+    }
+  }
+}

@@ -1,0 +1,162 @@
+// Project 3:Rotating Navigation
+.project-7 {
+  @extend %project-base;
+  // flex-direction: column;
+  position: relative;
+  background: $medium-color;
+  width: 100vw;
+  // max-width: 1200px;
+  margin: 0 auto;
+  user-select: none;
+
+  --right-bg-color: rgba(87, 84, 236, 0.7);
+  --right-btnhov-color: rgba(87, 84, 236, 1);
+  --left-bg-color: rgba(193, 51, 141, 0.8);
+  --left-btnhov-color: rgba(193, 51, 141, 1);
+  --hover-w1: 75%;
+  --hover-w2: 25%;
+  --speed: 1000ms;
+
+  & > *:not(i),
+  & > *:before {
+    transition: all var(--speed) ease-in-out;
+  }
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%);
+  }
+
+  .split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    &.left {
+      left: 0;
+      background: url("https://images.unsplash.com/photo-1591160690555-5debfba289f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cHVwcGllc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+        0% 0% / cover no-repeat;
+      &::before {
+        background-color: var(--left-bg-color);
+      }
+      a:hover {
+        background-color: var(--right-btnhov-color);
+      }
+    }
+    &.right {
+      right: 0;
+      background: url("https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8a2l0dGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+        0% 0% / cover no-repeat;
+      &::before {
+        background-color: var(--right-bg-color);
+      }
+      a:hover {
+        background-color: var(--left-btnhov-color);
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    h1 {
+      font-size: 4rem;
+      color: $dark-color;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      // Avoid the text to become several lines
+      white-space: nowrap;
+    }
+    .btn-7 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      border: #fff solid 0.2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 15rem;
+      padding: 1rem;
+    }
+  }
+
+  .fa-heart {
+    color: red;
+    position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.5s ease-in;
+    &.grow {
+      transform: translate(-50%, -50%) scale(3);
+      opacity: 1;
+    }
+  }
+
+  &.hover-left {
+    .left {
+      width: var(--hover-w1);
+      &::before {
+        background-color: #0000;
+      }
+    }
+    .right {
+      width: var(--hover-w2);
+    }
+  }
+  &.hover-right {
+    .right {
+      width: var(--hover-w1);
+      &::before {
+        background-color: #0000;
+      }
+    }
+    .left {
+      width: var(--hover-w2);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-7 {
+    padding: 0;
+    .title {
+      h2,
+      h3 {
+        font-size: 0.8rem;
+      }
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .btn-7 {
+      padding: 0.5rem;
+      width: 25vw;
+    }
+    &.hover-left {
+      .left {
+        width: 100%;
+      }
+      .right {
+        width: 0;
+      }
+    }
+    &.hover-right {
+      .right {
+        width: 100%;
+      }
+      .left {
+        width: 0;
+      }
+    }
+  }
+}

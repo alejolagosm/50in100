@@ -1,0 +1,69 @@
+// Project
+.project-42 {
+  @extend %project-base;
+  flex-direction: column;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    height: 500px;
+    width: 460px;
+    transition: 0.5s ease-in;
+    margin-bottom: 2rem;
+
+    &.small {
+      gap: 0px;
+      height: 400px;
+      width: 400px;
+
+      .cell {
+        transform: rotateZ(360deg);
+      }
+    }
+    .cell {
+      height: 100px;
+      width: 100px;
+
+      background-image: url("img/1.svg");
+      background-repeat: no-repeat;
+      background-size: 500px 500px;
+      transition: 0.5s ease-in;
+      position: relative;
+      background-color: $medium-color;
+
+      &:after {
+        content: "";
+        position: absolute;
+        background-color: $main-color;
+        top: 5px;
+        right: -10px;
+        height: 100%;
+        width: 10px;
+        transform: skewY(45deg);
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        background-color: $main-color;
+        left: 5px;
+        bottom: -10px;
+        width: 100%;
+        height: 10px;
+        transform: skewX(45deg);
+      }
+    }
+  }
+  .btn-dark {
+    outline: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-42 {
+    .grid {
+      transform: scale(0.7);
+    }
+  }
+}

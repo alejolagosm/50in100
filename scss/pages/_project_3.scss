@@ -1,0 +1,174 @@
+// Project 3:Rotating Navigation
+.project-3 {
+  overflow-x: hidden;
+  color: #222;
+  background-color: #ff9a8b;
+  background-image: linear-gradient(
+    90deg,
+    #fad961 0%,
+    #f76b1c 55%,
+    #fad961 100%
+  );
+
+  position: relative;
+  .container-3 {
+    background-color: #fafafa;
+    background-color: #fad961;
+    background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    padding: 2rem;
+    position: relative;
+
+    .circle-container-3 {
+      position: absolute;
+      top: -100px;
+      left: -100px;
+
+      .circle-3 {
+        background-color: $medium-color;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        position: relative;
+        transition: transform 0.5s linear;
+        button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 100px;
+          background: transparent;
+          border: 0;
+          font-size: 2rem;
+          color: #fff;
+          cursor: pointer;
+        }
+        #open-3 {
+          left: 60%;
+          cursor: pointer;
+        }
+        #close-3 {
+          top: 60%;
+          transform: rotate(90deg);
+          transform-origin: top left;
+        }
+        button:focus {
+          outline: none;
+        }
+      }
+    }
+    .content-3 {
+      max-width: 1200px;
+      h1,
+      h3 {
+        text-align: center;
+        margin: 0.5rem;
+      }
+      margin: 1rem auto;
+      .lead-p {
+        text-align: center;
+        color: #222;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        span {
+          text-decoration: underline;
+        }
+      }
+      figure {
+        margin: auto;
+        width: 80%;
+        text-align: center;
+        margin-bottom: 1rem;
+        figcaption {
+          color: #000;
+          font-weight: bold;
+        }
+      }
+      p {
+        line-height: 1.1;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        & > * {
+          img {
+            height: 250px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 100;
+    ul {
+      padding-left: 30px;
+      li {
+        a {
+          cursor: pointer;
+        }
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            margin-left: #{$i * 15}px;
+            transform: translateX(#{$i * -100%});
+          }
+        }
+        text-transform: uppercase;
+        margin: 40px 0;
+        transition: transform 0.4s ease-in;
+        i {
+          font-size: 1.2rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .container-3.show-nav {
+    transform: rotate(-50deg);
+    + nav li {
+      transform: translateX(0);
+      transition-delay: 0.3s;
+    }
+    .circle-3 {
+      transform: rotate(-40deg);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-3 {
+    .container-3 {
+      .content-3 {
+        .lead-p {
+          text-align: left;
+          text-align: justify;
+          font-size: 1rem;
+        }
+        figure {
+          width: 95%;
+        }
+        p {
+          line-height: 1;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+          & > * {
+            img {
+              height: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+// Project 3:Rotating Navigation
+.project-17 {
+  @extend %project-base;
+  flex-direction: column;
+
+  --w1: 85px;
+  --h1: 50%;
+  --h2: 0%;
+  // --w2: 200px;
+  .question {
+    color: blanchedalmond;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: $main-color;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    select {
+      border: 1px solid $light-color;
+      // color: blanchedalmond;
+      padding: 3px;
+      background-color: #0000;
+      border-radius: 3px;
+    }
+    span {
+      margin-right: 3px;
+    }
+  }
+
+  .beer-content {
+    // padding: 5px;
+    width: min(calc(var(--w1) * 1.5), 500px);
+    aspect-ratio: 0.5;
+    border: 1px solid;
+    border-radius: 3px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .beer-size {
+      background-color: rgba(burlywood, 0.5);
+      width: var(--w1);
+      aspect-ratio: 0.8;
+      border-radius: 0 0 20px 20px;
+      clip-path: polygon(100% 0, 90% 50%, 70% 100%, 30% 100%, 10% 50%, 0 0);
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+    }
+
+    &.active {
+      .liquid {
+        height: var(--h1);
+        &.spill {
+          height: min(var(--h2), 100%);
+        }
+      }
+    }
+  }
+
+  .liquid {
+    align-self: flex-end;
+    height: 0%;
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      #cf6900,
+      #d67005,
+      #dc770b,
+      #e37e11,
+      #e98516,
+      #ec8b20,
+      #ef912a,
+      #f29732,
+      #f29d40,
+      #f1a34c,
+      #f1a959,
+      #f0af65
+    );
+    transition: all 1s linear;
+
+    &.spill {
+      opacity: 0.5;
+      position: absolute;
+      bottom: 0;
+      height: 0%;
+      width: 100%;
+      transition: all 1s linear 1s;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+}

@@ -1,0 +1,58 @@
+// Project
+.project-44 {
+  @extend %project-base;
+  flex-direction: column;
+  background-color: $medium-color;
+  .container_hp {
+    height: 500px;
+    width: 350px;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+
+    .search_cont {
+      padding: 1rem;
+      height: 25%;
+      background-color: $light-color;
+      input {
+        text-align: left;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        border: none;
+        outline: white;
+      }
+    }
+    .character_cont {
+      max-height: 75%;
+      overflow-y: auto;
+      padding: 0 1rem 1rem;
+      & > :not(:last-of-type) {
+        border-bottom: 1px solid #eee;
+      }
+      & > .character.hide {
+        display: none;
+      }
+      .character {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 0.5rem 0;
+        img {
+          border-radius: 50%;
+          height: 80px;
+          width: 80px;
+          object-fit: center;
+        }
+        .char_id {
+          text-align: left;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+}

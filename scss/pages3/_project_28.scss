@@ -1,0 +1,44 @@
+// Project
+.project-28 {
+  @extend %project-base;
+  flex-direction: column;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(37, 145, 251, 0.98) 0.1%,
+    rgba(0, 7, 128, 1) 99.8%
+  );
+  position: relative;
+
+  .btn-fire {
+    background-image: linear-gradient(135deg, #fdd819 10%, #e80505 100%);
+    border: none;
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  .greeting {
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    // transform: translate(-50%, 60%);
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+
+  .not_popup {
+    &-child {
+      position: absolute;
+      background-image: linear-gradient(135deg, #fdd819 10%, #e80505 100%);
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 15px;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+}

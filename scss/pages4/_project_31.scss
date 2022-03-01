@@ -1,0 +1,99 @@
+// Project
+.project-31 {
+  min-height: calc(100vh - 13.2rem);
+  flex-direction: column;
+  position: relative;
+
+  & > * {
+    &.hidden {
+      display: none;
+    }
+  }
+  .grid {
+    &.hidden {
+      display: none;
+    }
+    --width: 10;
+    // height: 450px;
+    // width: 450px;
+    // aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--width), 1fr);
+    background-color: lightgray;
+    // border: 0.5px solid black;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    margin: 2rem;
+    gap: 2px;
+
+    .cell {
+      // height: 45px;
+      width: 40px;
+      aspect-ratio: 1;
+      // border: 1px solid;
+      cursor: pointer;
+      border: 5px solid;
+      border-color: #0f2027 #0f2027 #2c5364 #2c5364;
+      background: linear-gradient(to right, #203a43, #2c5364);
+      transition: 0.5s linear;
+      font-weight: bold;
+      display: grid;
+      place-content: center;
+
+      &:hover {
+        transform: scale(0.9);
+      }
+
+      &.bomb.checked {
+        border-color: #da4453 #da4453 #89216b #89216b;
+        background: linear-gradient(to right, #da4453, #89216b);
+      }
+      &.bomb.flag {
+        border-color: #327765#327765 #99f2c8 #99f2c8;
+        background: linear-gradient(to right, #327765, #99f2c8);
+      }
+      &.valid.checked {
+        border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+        background: linear-gradient(to right, #ffefba, #ffffff);
+      }
+    }
+  }
+
+  .overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // z-index: 1;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+
+  .result {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    &.winner {
+      background: linear-gradient(to right, #11998e, #38ef7d);
+    }
+    &.loser {
+      background: linear-gradient(to right, #ee0979, #ff6a00);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-31 {
+    .grid {
+      .cell {
+        width: 30px;
+      }
+    }
+  }
+}

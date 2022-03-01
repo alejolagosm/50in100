@@ -1,0 +1,94 @@
+// Project
+.project-48 {
+  @extend %project-base;
+  height: auto;
+  position: relative;
+  .open-btn,
+  .close-btn {
+    background-color: $main-color;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    i {
+      font-size: 1.5rem;
+    }
+    &.hidden {
+      display: none;
+    }
+  }
+  .open-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+  .close-btn {
+    // opacity: 0.7;
+    right: 1rem;
+    background-color: $light-color;
+    margin-bottom: 1rem;
+  }
+  .tools_nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.5s linear;
+    padding: 1rem;
+    text-align: right;
+    &.visible {
+      transform: translateX(0);
+      &.main {
+        transition-delay: 0s;
+      }
+    }
+    &.main {
+      background-color: $main-color;
+      width: 20%;
+      transition-delay: 0.5s;
+    }
+    &.medium {
+      background-color: $medium-color;
+      width: 90%;
+      transition-delay: 0s;
+      &.visible {
+        transition-delay: 0.5s;
+      }
+    }
+    ul {
+      text-align: left;
+      li {
+        border-right: 3px solid $light-color;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+      }
+      li.active {
+        border-right: 10px solid $main-color;
+      }
+    }
+  }
+  .photo_grid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-48 {
+    .photo_grid {
+      grid-template-columns: 1fr;
+    }
+    .tools_nav {
+      &.main {
+        width: 70%;
+      }
+    }
+  }
+}

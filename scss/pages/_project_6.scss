@@ -1,0 +1,48 @@
+// Project 3:Rotating Navigation
+.project-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background-image: linear-gradient(to left, #09203f 0%, #537895 100%);
+  .box {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1rem;
+
+    height: 200px;
+    transition: transform 1s cubic-bezier(0.32, 0.25, 0.29, 1.43);
+
+    img {
+      height: 90%;
+    }
+    &:nth-of-type(even) {
+      transform: translateX(-100vw);
+    }
+    &:nth-of-type(odd) {
+      transform: translateX(100vw);
+    }
+    &:nth-of-type(2n + 3) {
+      transform: translateX(100vw) rotate(360deg);
+    }
+    &:nth-of-type(3n + 3) {
+      transform: translateX(-100vw) scale(0.2);
+    }
+    &.show {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .project-6 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .project-6 {
+    grid-template-columns: 1fr;
+  }
+}

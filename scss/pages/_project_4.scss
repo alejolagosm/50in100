@@ -1,0 +1,140 @@
+// Project 4a: Animated Navigation
+.project-4a {
+  min-height: 300px;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    #e0e0f7,
+    #bac4ef,
+    #8caae8,
+    #4892e1
+  );
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .nav {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s linear;
+
+    ul {
+      display: flex;
+      width: 220px;
+      transition: all 0.5s linear;
+    }
+    .item {
+      transform: rotateY(360deg);
+      padding: 0 0.5rem;
+      transition: all 0.5s linear;
+      a {
+        &:hover {
+          border-bottom: 1px solid #4892e1;
+        }
+      }
+    }
+  }
+  .closer {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    &::after,
+    &::before {
+      content: "";
+      width: 100%;
+      height: 4px;
+      background-color: black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: all 0.6s linear;
+    }
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+  .active {
+    ul {
+      width: 0;
+    }
+    .item {
+      transform: rotateY(0deg);
+      opacity: 0;
+    }
+
+    .closer {
+      &::after {
+        transform: translate(-50%, -50%) rotate(360deg);
+        top: 25%;
+      }
+      &::before {
+        top: 75%;
+        transform: translate(-50%, -50%) rotate(-360deg);
+      }
+    }
+  }
+}
+
+// Project 4: Hidden Search Widget
+.project-4 {
+  flex-direction: column;
+  background-image: linear-gradient(
+    to right,
+    #e0e0f7,
+    #bac4ef,
+    #8caae8,
+    #4892e1
+  );
+  min-height: 300px;
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .search {
+    position: relative;
+    height: 2rem;
+    .input {
+      background-color: #fff;
+      border: 0;
+      font-size: 1rem;
+      padding: 1rem;
+      height: 2rem;
+      width: 2rem;
+      transition: width 0.5s ease;
+    }
+    &.active {
+      .input {
+        width: 15rem;
+      }
+      .btn {
+        transform: translateX(14rem);
+      }
+    }
+    .btn {
+      background-color: #fff;
+      border: 0;
+      cursor: pointer;
+      font-size: 1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2rem;
+      width: 2rem;
+      transition: transform 0.5s ease;
+    }
+    > :focus {
+      outline: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+}

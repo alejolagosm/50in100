@@ -1,0 +1,196 @@
+// Project
+.project-24 {
+  @extend %project-base;
+  background-color: $medium-color;
+  gap: 4rem;
+
+  .triangles {
+    position: relative;
+    background: linear-gradient(to right, #f12711, #f5af19);
+    height: 150px;
+    border-radius: 50%;
+    width: 150px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 0;
+      width: 0;
+      border: 50px solid transparent;
+      border-bottom-color: #f12711;
+      animation: rotateA 2s linear infinite 0.5s;
+    }
+    &:before {
+      border-bottom-color: #f5af19;
+      transform: rotate(90deg);
+      animation: rotateB 2s linear infinite;
+    }
+  }
+  .circles {
+    position: relative;
+    background: linear-gradient(to right, #fffbd5, #b20a2c);
+    height: 50px;
+    width: 204px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    &:before,
+    &:after {
+      content: "";
+      // border: 1px solid;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(0%, -50%);
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background: #fffbd5;
+      animation: moveA 2s linear infinite;
+    }
+    &:before {
+      background: #b20a2c;
+      transform: translate(-100%, -50%);
+      animation: moveB 2s linear infinite;
+    }
+  }
+
+  .hourglass {
+    position: relative;
+    background: linear-gradient(to right, #ffd89b, #19547b);
+    height: 150px;
+    border-radius: 50%;
+    width: 150px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 0;
+      width: 0;
+      border: 50px solid transparent;
+      border-bottom-color: #19547b;
+      border-top-color: #19547b;
+      animation: rotateA 3s linear infinite;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background: linear-gradient(to right, #ffd89b, #19547b);
+      animation: moveDown 3s linear infinite;
+    }
+  }
+}
+
+@keyframes rotateA {
+  0%,
+  25% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50%,
+  75% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotateB {
+  0%,
+  25% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50%,
+  75% {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(450deg);
+  }
+}
+@keyframes moveA {
+  0% {
+    transform: translate(0%, -50%);
+  }
+  25% {
+    transform: translate(50%, -50%);
+  }
+  50% {
+    transform: translate(100%, -50%);
+  }
+  75% {
+    transform: translate(50%, -50%);
+  }
+  100% {
+    transform: translate(0%, -50%);
+  }
+}
+@keyframes moveB {
+  0% {
+    transform: translate(-100%, -50%);
+  }
+  25% {
+    transform: translate(-150%, -50%);
+  }
+  50% {
+    transform: translate(-200%, -50%);
+  }
+  75% {
+    transform: translate(-150%, -50%);
+  }
+  100% {
+    transform: translate(-100%, -50%);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50% {
+    top: 80%;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  75% {
+    top: 80%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  100% {
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .project-24 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    :nth-child(3) {
+      grid-column: 1 / span 2;
+      justify-self: center;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-24 {
+    flex-direction: column;
+  }
+}

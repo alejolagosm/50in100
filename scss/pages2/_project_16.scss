@@ -1,0 +1,40 @@
+// Project 3:Rotating Navigation
+.project-16 {
+  @extend %project-base;
+
+  background-image: linear-gradient(
+    to left top,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
+
+  .content {
+    min-width: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 0.5rem;
+    i {
+      // color: $main-color;
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 5px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .project-16 {
+    flex-direction: column;
+  }
+}
